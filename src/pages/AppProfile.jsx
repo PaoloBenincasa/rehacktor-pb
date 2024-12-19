@@ -1,7 +1,9 @@
 import useProfile from "../hooks/useProfile";
 import { getAvatarUrl } from "../utils/getAvatarUrl";
 
+
 export default function AppProfile() {
+    
     const { first_name, last_name, username, avatar_url} = useProfile(); 
 
     return (

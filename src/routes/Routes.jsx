@@ -1,7 +1,7 @@
 import { createBrowserRouter, createRoutesFromElements, Navigate, Outlet, Route } from "react-router";
 import AppLayout from "../Layout/AppLayout";
 import AppHome from "../pages/AppHome";
-import preLoadedFilters from "../lib/fetch";
+import preLoadedFilters, {fetchGame } from "../lib/fetch";
 import AppGenre from "../pages/AppGenre";
 import AppPlatform from "../pages/AppPlatform"
 import AppGame from "../pages/AppGame";
@@ -28,7 +28,7 @@ const router = createBrowserRouter(
             <Route path="/" element={<AppHome />} loader={preLoadedFilters} />
             <Route path="/games/:genre_slug" element={<AppGenre />} />
             <Route path="/platforms/:platform_slug" element={<AppPlatform />} />
-            <Route path="/game/:id" element={<AppGame />} />
+            <Route path="/game/:id" element={<AppGame />} loader={fetchGame}/>
             <Route path="/signin" element={<AppSignIn />} />
             <Route path="/signup" element={<AppSignUp />} />
 

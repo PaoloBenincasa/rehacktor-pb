@@ -23,3 +23,13 @@ export default async function preLoadedFilters(){
         platforms,
     };
 }
+
+export async function fetchGame({params}) {
+    const response = await fetch(
+        // `${import.meta.env.VITE_API_BASE_URL}games/${id}?key=${import.meta.env.VITE_API_KEY}`
+        `${import.meta.env.VITE_API_BASE_URL}games/${params.id}?key=${import.meta.env.VITE_API_KEY}`
+    );
+    const json = await response.json();
+    return json;
+}
+
