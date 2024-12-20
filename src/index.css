@@ -161,3 +161,13 @@ h1{
 .user_info{
     width: 50%;
 }
+
+.messages {
+    height: 450px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0;
+    margin: 0;
+    scroll-behavior: smooth !important;
+  }

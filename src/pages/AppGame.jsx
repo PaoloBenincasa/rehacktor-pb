@@ -1,9 +1,10 @@
 import { useContext, useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router";
+import { useLoaderData } from "react-router";
 import GameImage from "../Components/Game/components/GameImage";
 import SessionContext from "../context/SessionContext";
 import supabase from "../supabase/client";
 import { Toaster, toast } from "sonner";
+import ChatUI from "../Components/ChatUI";
 
 export default function AppGame() {
     const session = useContext(SessionContext);
@@ -51,12 +52,12 @@ export default function AppGame() {
 
         if (error) {
             toast.error('removing failed')
-            
+
 
         } else {
             toast.success('removed successfylly')
             readFav();
-            
+
 
         }
     }
@@ -64,11 +65,50 @@ export default function AppGame() {
 
 
 
+    
+    // console.log(game);
+    
+    
+    async function handleMessageSubmit(event) {
+        event.preventDefault();
+        const inputMessage = event.currentTarget;
+        const { message } = Object.fromEntries(new FormData(inputMessage));
+    
+        // Check if session is valid
+        if (!session || !session.user) {
+            toast.error("User session is invalid. Please log in.");
+            return;
+        }
+    
+        if (typeof message === "string" && message.trim().length !== 0) {
+            const { data, error } = await supabase
+                .from("Messages")
+                .insert([
+                    {
+                        profile_id: session.user.id,
+                        profile_username: session.user.user_metadata.username,
+                        game_id: game.id,
+                        content: message,
+                    }
+                ])
+                .select();
+    
+            if (error) {
+                toast.error(`Error sending message: ${error.message}`);
+            } else {
+                toast.success("Message sent successfully!");
+                inputMessage.reset();
+                console.log("Response:", data);
+            }
+        } else {
+            toast.error("Message cannot be empty.");
+        }
+    }
+    
+    
     useEffect(() => {
         if (session) readFav();
     }, [])
-
-    console.log(game);
 
     return (
 
@@ -88,11 +128,23 @@ export default function AppGame() {
                                 <button onClick={() => insertIntoFav(game)} className="mb-3 rounded">Aggiungi ai preferiti</button>
                             ) : (
 
-                                <button onClick={()=> removeFromFav(game)} className="mb-3 rounded">Rimuovi dai preferiti</button>
+                                <button onClick={() => removeFromFav(game)} className="mb-3 rounded">Rimuovi dai preferiti</button>
                             )}
                         </div>
                     }
                     {session && <button className="mb-3 rounded">leggi la recensione</button>}
+                    <div>
+                        <ChatUI game={game}/>
+                    </div>
+                    <div>
+                        <form onSubmit={handleMessageSubmit}>
+                            <fieldset role="group">
+                                <input type="text" name="message" placeholder="Chat..." />
+                                <input type="submit" value="Invia" />
+                            </fieldset>
+                        </form>
+                        <Toaster richColors/>
+                    </div>
                 </div>
             </div>
             <Toaster richColors />
