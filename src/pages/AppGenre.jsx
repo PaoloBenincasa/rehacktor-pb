@@ -5,6 +5,7 @@ import Game from "../Components/Game";
 export default function AppGenre() {
     const { genre_slug } = useParams();
     const [genreGames, setGenreGames] = useState([]);
+    const [genreDetails, setGenreDetails] = useState();
 
     useEffect(() => {
         async function fetchGenreGames() {
@@ -12,13 +13,24 @@ export default function AppGenre() {
             const json = await response.json();
             setGenreGames(json.results);
         }
+
+
         fetchGenreGames();
+        // ();
+
+
     }, [])
+
+
+
 
     return (
         <div>
-            <h1>{genre_slug}</h1>
-            <div className="gamesWrapper">
+            <div className="text-center mb-3">
+                <h1>{genre_slug} games</h1>
+            </div>
+
+            <div className="genreWrapper">
 
                 <div className="gamesList">
                     {genreGames.map((game) => (
@@ -26,6 +38,7 @@ export default function AppGenre() {
                     ))}
                 </div>
             </div>
+
         </div>
     )
 }

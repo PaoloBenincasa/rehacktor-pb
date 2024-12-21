@@ -139,13 +139,24 @@ h1{
     width: 84%;
 }
 
+.genreWrapper{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+.genreDescription{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
 .imgDetail{
     height: 350px;
     width: 600px;
 }
 
 /* .imgContainer{
-    height: 120px;
+    height: 180px;
+    width: 180px;
 } */
 
 .user_card{
@@ -171,3 +182,20 @@ h1{
     margin: 0;
     scroll-behavior: smooth !important;
   }
+
+.ratingsContainer{
+    width: 70%;
+    
+}
+
+.messages{
+    height: fit-content;
+}
+
+.bgBlue{
+    background-color: #0b577e;
+}
+
+.bgRed{
+    background-color: #f93c4b;
+}

@@ -1,44 +1,46 @@
 :root {
-    --newwhite: #fafffd;
-    --newblack: #252829;
-    --black: #151515;
-    --newgreen: #00896a;
+  --newwhite: #fafffd;
+  --newblack: #252829;
+  --black: #151515;
+  --newgreen: #00896a;
 
-    /* background-color: var(--newblack); */
+  /* background-color: var(--newblack); */
 
 }
 
 .expose {
-    animation: expose 1s !important;
-  }
-  
-  @keyframes expose {
-    0% {
-      opacity: 0;
-    }
-    100% {
-      opacity: 1;
-    }
+  animation: expose 1s !important;
+}
+
+@keyframes expose {
+  0% {
+    opacity: 0;
   }
 
-  
+  100% {
+    opacity: 1;
+  }
+}
+
+
 
 .gameCard{
     background-color: var(--newblack);
-    /* padding: 1%; */
     border-radius: 2%;
     margin-bottom: 7%;
     height: 225px;
+    /* width: 400px; */
     text-decoration: none !important;
     color: var(--newwhite);
     transition: 0.2s;
+    
 }
-  
-  .gameCard:hover {
-    transform: scale(1.1);
-  }
-  
-  .gameCard:hover h4 {
-    color: #0F90BA;
-  } 
-  
+
+
+.gameCard:hover {
+  transform: scale(1.1);
+}
+
+.gameCard:hover h4 {
+  color: #0F90BA;
+}
