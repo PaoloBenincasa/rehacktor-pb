@@ -47,7 +47,7 @@ export default function AppNavbar() {
             <div className="row justify-content-around align-items-center mt-3 w-100">
                 <div className="col-md-2">
                     <Link to={`/`} className="text-decoration-none">
-                        <h3 className="mb-3 txtW">Rehacktor</h3>
+                        <h3 className="mb-3 txtW chakra fs-4">Rehacktor</h3>
                     </Link>
                 </div>
                 <div className="col-md-7 navSearchContainer">
@@ -59,7 +59,7 @@ export default function AppNavbar() {
                         onFocus={handleFocus}
                     />
                 </div>
-                <div className="col-md-2">
+                <div className="col-md-2 mb-2">
                     {session ? (
                         <ul>
 
@@ -69,9 +69,9 @@ export default function AppNavbar() {
                                         {username}
                                     </summary>
                                     <ul dir="rtl">
-                                        <li><Link to={'/profile'} href="#">Profilo</Link></li>
-                                        <li><Link to={'/account'} href="#">Account</Link></li>
-                                        <li><a href="#" onClick={signOut}>Logout</a></li>
+                                        <li><Link to={'/profile'} href="#" className="account">Profilo</Link></li>
+                                        <li><Link to={'/account'} href="#" className="account">Account</Link></li>
+                                        <li><a href="#" onClick={signOut} className="account">Logout</a></li>
                                     </ul>
                                 </details>
                             </li>

@@ -37,16 +37,17 @@ export default function ModalSearchUI({ focus, handleClickOverlay }) {
                         rel="prev"
                         onClick={handleClickOverlay}>
                     </button>
-                    <h3>cerca il tuo gioco</h3>
+                    <h3 className="bg-newblack">cerca il tuo gioco</h3>
                 </header>
-                <form>
+                <form className="bg-newblack">
                     <input
                         type="search"
                         name="search"
                         value={search}
                         placeholder="Search"
                         aria-label="Search"
-                        onChange={(event) => setSearch(event.target.value)} />
+                        onChange={(event) => setSearch(event.target.value)} 
+                        />
                 </form>
                 <div className="autoSuggestedWrapper">
                     {loading && <article aria-busy="true"></article>}
@@ -54,7 +55,7 @@ export default function ModalSearchUI({ focus, handleClickOverlay }) {
                         <AutoCompleteCardUI key={game.id} game={game} />
                     ))}
                 </div>
-                <footer>
+                <footer className="bg-newblack">
                     <button>Submit Search</button>
                 </footer>
             </article>

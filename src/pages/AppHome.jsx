@@ -58,7 +58,7 @@ export default function AppHome() {
         <AppAside />
 
       </div>
-      <div className="gamesWrapper">
+      <div className="gamesWrapper ps-2">
         <div className="mb-3">
           <h1> trend e novità dal mondo del gaming</h1>
           {/* {loading && <progress />} */}

@@ -5,13 +5,23 @@ import SessionContext from "../context/SessionContext";
 import supabase from "../supabase/client";
 import { Toaster, toast } from "sonner";
 import ChatUI from "../Components/ChatUI";
-import HorizontalBarChart from "../Components/HorizontalBarChart";
+// import HorizontalBarChart from "../Components/HorizontalBarChart";
 import DoughnutChart from "../Components/DoughnutChart";
+import ScreenshotModal from "../Components/ScreenshotModal";
 
 export default function AppGame() {
     const session = useContext(SessionContext);
     const game = useLoaderData();
     const [fav, setFav] = useState([]);
+    const [showModal, setShowModal] = useState(false);
+
+    const handleOpenModal = () => {
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     async function readFav() {
         let { data: Favourites, error } = await supabase
@@ -123,22 +133,36 @@ export default function AppGame() {
                         <DoughnutChart ratings={game.ratings} />
 
                     </div>
-                    {session &&
-                        <div className="d-flex justify-content-around mt-3">
-                            {fav.length == 0 ? (
-                                <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-primary mb-3 rounded">Aggiungi ai preferiti</button>
-                            ) : (
-                                <button onClick={() => removeFromFav(game)} type="button" className="btn btn-danger mb-3 rounded">Rimuovi dai preferiti</button>
+                    <div className="container">
+                        <div className="row">
 
-                            )}
+                            <div className="col-md-6">
+                                {session &&
+                                    <div className="d-flex justify-content-around mt-3">
+                                        {fav.length == 0 ? (
+                                            <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-primary mb-3 rounded">Aggiungi ai preferiti</button>
+                                        ) : (
+                                            <button onClick={() => removeFromFav(game)} type="button" className="btn btn-danger mb-3 rounded">Rimuovi dai preferiti</button>
+
+                                        )}
+                                    </div>
+                                }
+                            </div>
+
+                            <div className="col-md-6">
+                                <button
+                                    onClick={handleOpenModal}
+                                    className="btn btnGreen mb-3 mt-3"
+                                >
+                                    Guarda gli Screenshot
+                                </button>
+                            </div>
                         </div>
-                    }
-
-                  
+                    </div>
 
                     <div className="mt-3">
-                    <h5>About</h5>
-                    <p className="txtW">{game.description_raw}</p>
+                        <h5>About</h5>
+                        <p className="txtW">{game.description_raw}</p>
                     </div>
 
 
@@ -187,7 +211,7 @@ export default function AppGame() {
                             </div>
                         </div>
                     </div>
-                   
+
                     <div className="mt-3">
                         <ChatUI game={game} />
                     </div>
@@ -195,11 +219,17 @@ export default function AppGame() {
                         <form onSubmit={handleMessageSubmit}>
                             <fieldset role="group">
                                 <input type="text" name="message" placeholder="Chat..." />
-                                <input type="submit" value="Invia" />
+                                <input type="submit" value="Invia" className="bg-blue" />
                             </fieldset>
                         </form>
                         <Toaster richColors />
                     </div>
+                    <ScreenshotModal
+                        gameId={game.id}
+                        gameName={game.name}
+                        show={showModal}
+                        onClose={handleCloseModal}
+                    />
                 </div>
             </div>
             <Toaster richColors />

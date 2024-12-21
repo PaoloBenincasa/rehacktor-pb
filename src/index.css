@@ -8,6 +8,8 @@
     --newblack: #252829;
     --black: #151515;
     --newgreen: #00896a;
+    --blue: #156794;
+   
 
     /* background-color: var(--newblack); */
     font-family: "Chakra Petch", sans-serif;
@@ -20,8 +22,53 @@
     font-family: "Chakra Petch", sans-serif;
 }
 
-.bg-newblack{
+.genreSide{
+    background-color: var(
+        --newblack
+    );
+    color: var(--newwhite);
+    text-decoration: none;
+}
+
+.genreLink{
+    background-color: var(
+        --newblack
+    );
+    color: var(--newwhite);
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.genreLink:hover{
+    background-color: var(
+        --newblack
+    );
+    color: var(--blue);
+    text-decoration: underline;
+    transition: 0.2s;
+}
+
+.chakra{
+    font-family: "Chakra Petch", sans-serif;
+
+}
+
+.bg-black{
     background-color: var(--black);
+}
+
+.bg-newblack{
+    background-color: var(--newblack);
+}
+
+.btnGreen{
+    background-color: #5ca42d !important;
+    color: var(--newwhite) !important;
+}
+
+.btnGreen:hover{
+    background-color: #4b8f1e !important;
+    color: var(--newwhite) !important;
 }
 
 .loading {
@@ -32,6 +79,55 @@
 
 h1{
     font-family: "Chakra Petch", sans-serif;
+}
+
+.genrePic{
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.account{
+    background-color: var(--newwhite);
+    color: var(--newblack);
+}
+
+.bg-blue{
+    background-color: var(--blue);
+}
+
+.txtBlue{
+    color: var(--blue);
+}
+
+.account:hover{
+    
+    color: var(--blue);
+    text-decoration: underline;
+}
+
+.carousel-control-prev{
+    transform: translateY(50%);
+    height: 200px;
+    background-color: transparent !important;
+}
+
+.carousel-control-next{
+    transform: translateY(50%);
+    height: 200px;
+    background-color: transparent !important;
+
+}
+
+.button.btn-close{
+    color: var(--newwhite) !important;
+}
+
+
+
+.carousel-indicators{
+    visibility: hidden;
 }
 
 /* .gamesWrapper{
@@ -100,17 +196,6 @@ h1{
     list-style: none;
 }
 
-.card-img-top{
-    /* height: 120px;
-    width: 180px; */
-    filter: sepia(0%);
-    transition: 0.5s;
-}
-
-.card-img-top:hover{
-    filter: sepia(40%);
-    
-}
 
 .gameCard{
     background-color: var(--newblack);

@@ -4,34 +4,17 @@ export default function AppAside() {
     const { genres, platforms } = useLoaderData();
     return (
         <aside>
-            <nav>
-                <div className="pb-3">
-                    <h5>Generi</h5>
-                    <details className="dropdown">
-                        <summary>Vedi Generi</summary>
-                        <ul>
-                            {genres.map((genre) => (
-                                <li key={genre.id}>
-                                    <Link to={`/games/${genre.slug}`}>{genre.name}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </details>
-                </div>
-                <div className="pb-3">
-                    <h5>Console</h5>
-                    <details className="dropdown">
-                        <summary>Vedi Console</summary>
-                        <ul>
-                            {platforms.map((platform) => (
-                                <li key={platform.id}>
-                                    <Link to={`/platforms/${platform.slug}`}>{platform.name}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                    </details>
-                </div>
-            </nav>
+            
+            <ul className="genreSide ps-1 rounded">
+                <h5 className="genreSide ms-2 pt-1 chakra">Generi</h5>
+                {genres.map((genre) => (
+                    <li key={genre.id} className="genreSide d-flex" >
+                        <img src={genre.image_background} alt="" className="genrePic me-2"/>
+                        <Link className="genreLink" to={`/games/${genre.slug}`}>{genre.name}</Link>
+                    </li>
+                ))}
+                
+            </ul>
         </aside>
     )
 }

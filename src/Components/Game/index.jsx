@@ -10,7 +10,7 @@ function Game({ game }) {
                     <GameImage image={image}/>
 
                 <div>
-                    <p className="card-title text-truncate p-1 text-decoration-none">{game.name}</p>
+                    <p className="card-title text-truncate ps-2 pt-1 text-decoration-none">{game.name}</p>
                     {/* <small>{game.genres.map((genre) => genre.name).join(', ')}</small> */}
                 </div>
             </div>
