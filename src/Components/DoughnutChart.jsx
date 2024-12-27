@@ -23,10 +23,10 @@ const DoughnutChart = ({ ratings }) => {
         plugins: {
             legend: {
                 position: 'right', // Posizione della legenda (es: 'top', 'bottom', 'left', 'right')
-                
+
             },
-            
-             
+
+
             tooltip: {
                 callbacks: {
                     label: function (tooltipItem) {
@@ -40,7 +40,14 @@ const DoughnutChart = ({ ratings }) => {
     return (
         <div>
             {/* <h3>Valutazioni (Percentuali)</h3> */}
-            <Doughnut data={data} options={options} />
+                <Doughnut 
+                data={data} 
+                options={options}
+                />
+               
+          
+
+
         </div>
     );
 };

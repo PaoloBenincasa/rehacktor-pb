@@ -29,8 +29,16 @@ const ScreenshotModal = ({ gameId, gameName, show, onClose }) => {
 
     return (
         <Modal show={show} onHide={onClose} size="lg" centered>
-            <Modal.Header closeButton>
-                {/* <Modal.Title>Screenshots di {gameName}</Modal.Title> */}
+            <Modal.Header>
+                <div data-bs-theme="dark">
+                    <button 
+                    type="button" 
+                    className="btn-close" 
+                    aria-label="Close"
+                    onClick={onClose}
+                    ></button>
+                </div>
+                <Modal.Title className="ms-5 ">Screenshots di {gameName}</Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 {loading ? (

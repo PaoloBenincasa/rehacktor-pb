@@ -2,12 +2,15 @@ import { useContext } from "react";
 import useProfile from "../hooks/useProfile"; // Hook per ottenere i dati del profilo utente
 import { getAvatarUrl } from "../utils/getAvatarUrl"; // Funzione per costruire l'URL dell'avatar
 import FavContext from "../Components/favContext/favContext";
+import { Link } from "react-router";
+
 export default function AppProfile() {
   const { favourites } = useContext(FavContext); // Accedi ai preferiti tramite il contesto
   const { first_name, last_name, username, avatar_url } = useProfile(); // Dati del profilo utente
+  
 
   return (
-    <div>
+    <div className="container p-5">
       <article>
         <header>
           <h1>Ciao {first_name}!</h1>
@@ -39,10 +42,12 @@ export default function AppProfile() {
                 Preferiti
               </summary>
               <div>
-                {favourites.length > 0 ? (
+                {favourites && favourites.length > 0 ? (
                   favourites.map((favourite) => (
                     <p key={favourite.id}>
-                      <strong>{favourite.game_name}</strong>
+                      <Link to={`/game/${favourite.id}`}>
+                      <p>{favourite.game_name}</p>
+                      </Link>
                       
                     </p>
                   ))
@@ -52,13 +57,7 @@ export default function AppProfile() {
               </div>
             </details>
 
-            {/* Recensioni fatte */}
-            <details>
-              <summary role="button" className="contrast">
-                Recensioni fatte
-              </summary>
-              <p>...</p>
-            </details>
+           
           </section>
         </div>
       </article>

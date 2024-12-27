@@ -3,7 +3,7 @@ import AppLayout from "../Layout/AppLayout";
 import AppHome from "../pages/AppHome";
 import preLoadedFilters, {fetchGame } from "../lib/fetch";
 import AppGenre from "../pages/AppGenre";
-import AppPlatform from "../pages/AppPlatform"
+// import AppPlatform from "../pages/AppPlatform"
 import AppGame from "../pages/AppGame";
 import AppSignUp from "../pages/AppSignUp";
 import AppSignIn from "../pages/AppSignin";
@@ -27,7 +27,7 @@ const router = createBrowserRouter(
         <Route path="/" element={<AppLayout />}>
             <Route path="/" element={<AppHome />} loader={preLoadedFilters} />
             <Route path="/games/:genre_slug" element={<AppGenre />} />
-            <Route path="/platforms/:platform_slug" element={<AppPlatform />} />
+            {/* <Route path="/platforms/:platform_slug" element={<AppPlatform />} /> */}
             <Route path="/game/:id" element={<AppGame />} loader={fetchGame}/>
             <Route path="/signin" element={<AppSignIn />} />
             <Route path="/signup" element={<AppSignUp />} />

@@ -44,9 +44,11 @@
         --newblack
     );
     color: var(--blue);
-    text-decoration: underline;
+    /* text-decoration: underline; */
     transition: 0.2s;
 }
+
+
 
 .chakra{
     font-family: "Chakra Petch", sans-serif;
@@ -77,6 +79,7 @@
     margin: 0px auto;
   }
 
+
 h1{
     font-family: "Chakra Petch", sans-serif;
 }
@@ -89,8 +92,16 @@ h1{
 }
 
 .account{
-    background-color: var(--newwhite);
-    color: var(--newblack);
+    background-color: var(--newblack);
+    color: var(--newwhite);
+    padding: 3%;
+    text-decoration: none;
+}
+
+.account:hover{
+    
+    color: var(--blue);
+    text-decoration: none;
 }
 
 .bg-blue{
@@ -101,11 +112,6 @@ h1{
     color: var(--blue);
 }
 
-.account:hover{
-    
-    color: var(--blue);
-    text-decoration: underline;
-}
 
 .carousel-control-prev{
     transform: translateY(50%);
@@ -145,6 +151,11 @@ h1{
 .txtW{
     color: var(--newwhite);
 }
+
+.txtGrey{
+    color: grey;
+}
+
 .navSearchContainer{
    
     display: flex;
@@ -181,7 +192,20 @@ h1{
 }
 
 .navSearch{
-   
+    background-color: var(--newblack);
+    color: var(--newwhite);
+    width: 100%;
+    height: 45px;
+    border-radius: 25px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 5px;
+    transition: ease 0.7s;
+}
+
+.navSearch:hover{
+    background-color: var(--newwhite);
+    color: var(--newblack);
     width: 100%;
     height: 45px;
     border-radius: 25px;
@@ -190,7 +214,14 @@ h1{
     padding-bottom: 5px;
 }
 
+.hovBlue{
+    color: var(--newwhite);
+    transition: 0.2s;
+}
 
+.hovBlue:hover{
+    color: var(--blue);
+}
 
 .li{
     list-style: none;
@@ -215,13 +246,22 @@ h1{
     
 }
 
+.screenList{
+    column-count: 2;
+    
+}
+
 .sidebar{
-    width: 14%;
+    width: 16%;
     margin-right: 20px;
+    background-color: var(--newblack);
+    height: fit-content;
+    color: var(--newwhite);
+    text-decoration: none;
 }
 
 .gamesWrapper{
-    width: 84%;
+    width: 82%;
 }
 
 .genreWrapper{
@@ -229,20 +269,27 @@ h1{
     margin-right: 2%;
 }
 
+
+
 .genreDescription{
     margin-left: 2%;
     margin-right: 2%;
 }
 
 .imgDetail{
-    height: 350px;
-    width: 600px;
+    background-size: cover;
+    background-position: center;
+
 }
 
-/* .imgContainer{
-    height: 180px;
-    width: 180px;
-} */
+
+  
+    /* height: 100%;
+    width: 100%;
+    background-position: center;
+    background-size: cover;
+/* } */
+
 
 .user_card{
     width: 100%;
@@ -275,6 +322,8 @@ h1{
 
 .messages{
     height: fit-content;
+    /* background-color: #00896a; */
+    
 }
 
 .bgBlue{
@@ -283,4 +332,81 @@ h1{
 
 .bgRed{
     background-color: #f93c4b;
+}
+
+.chatMsg{
+    background-color: var(--newwhite);
+    color: var(--black);
+}
+
+.chatContainer{
+    height: 60px;
+}
+
+.modal-backdrop {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.drop{
+    /* background-color: var(--newgreen) !important; */
+    padding: 0% !important;
+    
+}
+
+.navSearchContainer {
+    position: relative;
+}
+
+.autocomplete-container {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    max-height: 300px;
+    overflow-y: auto;
+    background: #2c2c2c;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+.autocomplete-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+    background-color: var(--newblack);
+}
+
+.autocomplete-item:hover {
+    background: #444;
+}
+
+.imgAvatarSuggestions {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.titleAuto{
+    background-color: var(--newblack);
+    transition: background 0.3s;
+}
+
+.autocomplete-item:hover .titleAuto{
+    background-color: #444;
+}
+
+.dropAccount{
+    /* background-color: var(--newblack); */
+    display: flex;
+    justify-content: end;
+}
+
+.bgTransparent{
+    background-color: transparent;
 }

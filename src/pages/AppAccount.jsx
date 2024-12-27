@@ -73,61 +73,63 @@ export default function AppAccount() {
     }
 
     return (
+        <div>
 
-        <form onSubmit={updateProfile} className="form-widget">
-            <Avatar
-                url={avatar_url}
-                size={150}
-                onUpload={(event, url) => {
-                    updateProfile(event, url)
-                }}
-            />
-            <div>
-                <label htmlFor="email">Email</label>
-                <input id="email" type="text" value={session.user.email} disabled />
-            </div>
-            <div>
-                <label htmlFor="username">Name</label>
-                <input
-                    id="username"
-                    type="text"
-                    required
-                    value={username || ''}
-                    onChange={(e) => setUsername(e.target.value)}
+            <form onSubmit={updateProfile} className="form-widget p-5">
+                <Avatar
+                    url={avatar_url}
+                    size={150}
+                    onUpload={(event, url) => {
+                        updateProfile(event, url)
+                    }}
                 />
-            </div>
-            <div>
-                <label htmlFor="first_name">first name</label>
-                <input
-                    id="first_name"
-                    type="text"
-                    value={first_name || ''}
-                    onChange={(e) => setFirst_name(e.target.value)}
-                />
-            </div>
-            <div>
-                <label htmlFor="last_name">last name</label>
-                <input
-                    id="last_name"
-                    type="text"
-                    value={last_name || ''}
-                    onChange={(e) => setLast_name(e.target.value)}
-                />
-            </div>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input id="email" type="text" value={session.user.email} disabled />
+                </div>
+                <div>
+                    <label htmlFor="username">Name</label>
+                    <input
+                        id="username"
+                        type="text"
+                        required
+                        value={username || ''}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="first_name">first name</label>
+                    <input
+                        id="first_name"
+                        type="text"
+                        value={first_name || ''}
+                        onChange={(e) => setFirst_name(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="last_name">last name</label>
+                    <input
+                        id="last_name"
+                        type="text"
+                        value={last_name || ''}
+                        onChange={(e) => setLast_name(e.target.value)}
+                    />
+                </div>
 
-            <div>
-                <button className="button block primary" type="submit" disabled={loading}>
-                    {loading ? 'Loading ...' : 'Update'}
-                </button>
-                <Toaster richColors />
-            </div>
+                <div>
+                    <button className="button block primary" type="submit" disabled={loading}>
+                        {loading ? 'Loading ...' : 'Update'}
+                    </button>
+                    <Toaster richColors />
+                </div>
 
-            <div>
-                <button className="button block" type="button" onClick={() => supabase.auth.signOut()}>
-                    Sign Out
-                </button>
-            </div>
-        </form>
+                <div>
+                    <button className="button block" type="button" onClick={() => supabase.auth.signOut()}>
+                        Sign Out
+                    </button>
+                </div>
+            </form>
+        </div>
     )
 }
 

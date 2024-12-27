@@ -29,7 +29,7 @@ export default function AppHome() {
   let games = useAsyncList({
     async load({ signal, cursor }) {
 
-      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2023-06-01,2024-01-01&page=1`, {
+      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2021-06-01,2024-01-01&page=1`, {
         signal
       });
       let json = await res.json();
@@ -46,14 +46,15 @@ export default function AppHome() {
 
 
   useEffect(() => {
-    if (games.items.length && inView && !games.isLoading) {
+    if (inView && !games.isLoading && games.items.length) {
       games.loadMore();
     }
   }, [inView, games]);
+  
 
 
   return (
-    <div className="container-fluid d-flex">
+    <div className="container-fluid d-flex mt-4">
       <div className="sidebar">
         <AppAside />
 
@@ -71,6 +72,7 @@ export default function AppHome() {
 
         </div>
         <div ref={ref} aria-busy="true" className="loading"></div>
+        {/* <div ref={ref} aria-busy="true" className="loading"></div> */}
       </div>
 
     </div>

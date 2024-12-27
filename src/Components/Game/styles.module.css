@@ -7,7 +7,7 @@
   /* background-color: var(--newblack); */
 
 }
-
+/* 
 .expose {
   animation: expose 1s !important;
 }
@@ -20,8 +20,12 @@
   100% {
     opacity: 1;
   }
-}
+} */
 
+.gameImageContainer {
+  position: relative; 
+  height: 100%; 
+}
 
 
 .gameCard{
@@ -33,14 +37,15 @@
     text-decoration: none !important;
     color: var(--newwhite);
     transition: 0.2s;
-    
+    position: relative;
 }
 
 
-.gameCard:hover {
+.gameCard:hover  {
   transform: scale(1.1);
 }
 
 .gameCard:hover h4 {
   color: #0F90BA;
 }
+
