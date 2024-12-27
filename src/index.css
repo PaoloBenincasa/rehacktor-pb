@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Coda:wght@400;800&display=swap');
 
 
-  
+
 
 :root {
     --newwhite: #fafffd;
@@ -9,40 +9,34 @@
     --black: #151515;
     --newgreen: #00896a;
     --blue: #156794;
-   
+
 
     /* background-color: var(--newblack); */
     font-family: "Chakra Petch", sans-serif;
 
 }
 
-*{
+* {
     background-color: var(--black);
     color: var(--newwhite);
     font-family: "Chakra Petch", sans-serif;
 }
 
-.genreSide{
-    background-color: var(
-        --newblack
-    );
+.genreSide {
+    background-color: var(--newblack);
     color: var(--newwhite);
     text-decoration: none;
 }
 
-.genreLink{
-    background-color: var(
-        --newblack
-    );
+.genreLink {
+    background-color: var(--newblack);
     color: var(--newwhite);
     text-decoration: none;
     transition: 0.3s;
 }
 
-.genreLink:hover{
-    background-color: var(
-        --newblack
-    );
+.genreLink:hover {
+    background-color: var(--newblack);
     color: var(--blue);
     /* text-decoration: underline; */
     transition: 0.2s;
@@ -50,25 +44,25 @@
 
 
 
-.chakra{
+.chakra {
     font-family: "Chakra Petch", sans-serif;
 
 }
 
-.bg-black{
+.bg-black {
     background-color: var(--black);
 }
 
-.bg-newblack{
+.bg-newblack {
     background-color: var(--newblack);
 }
 
-.btnGreen{
+.btnGreen {
     background-color: #5ca42d !important;
     color: var(--newwhite) !important;
 }
 
-.btnGreen:hover{
+.btnGreen:hover {
     background-color: #4b8f1e !important;
     color: var(--newwhite) !important;
 }
@@ -77,62 +71,62 @@
     font-size: 3rem;
     display: block;
     margin: 0px auto;
-  }
+}
 
 
-h1{
+h1 {
     font-family: "Chakra Petch", sans-serif;
 }
 
-.genrePic{
+.genrePic {
     width: 30px;
     height: 30px;
     border-radius: 15px;
     object-fit: cover;
 }
 
-.account{
+.account {
     background-color: var(--newblack);
     color: var(--newwhite);
     padding: 3%;
     text-decoration: none;
 }
 
-.account:hover{
-    
+.account:hover {
+
     color: var(--blue);
     text-decoration: none;
 }
 
-.bg-blue{
+.bg-blue {
     background-color: var(--blue);
 }
 
-.txtBlue{
+.txtBlue {
     color: var(--blue);
 }
 
 
-.carousel-control-prev{
+.carousel-control-prev {
     transform: translateY(50%);
     height: 200px;
     background-color: transparent !important;
 }
 
-.carousel-control-next{
+.carousel-control-next {
     transform: translateY(50%);
     height: 200px;
     background-color: transparent !important;
 
 }
 
-.button.btn-close{
+.button.btn-close {
     color: var(--newwhite) !important;
 }
 
 
 
-.carousel-indicators{
+.carousel-indicators {
     visibility: hidden;
 }
 
@@ -144,30 +138,30 @@ h1{
     margin-top:  30px;
 } */
 
-.nav{
+.nav {
     background-color: #00896a;
 }
 
-.txtW{
+.txtW {
     color: var(--newwhite);
 }
 
-.txtGrey{
+.txtGrey {
     color: grey;
 }
 
-.navSearchContainer{
-   
+.navSearchContainer {
+
     display: flex;
     align-items: center;
-    
+
 }
 
-.buttonPrimary{
+.buttonPrimary {
     margin-top: 20px;
 }
 
-.buttonSecondary{
+.buttonSecondary {
     margin-top: 20px;
 }
 
@@ -191,7 +185,7 @@ h1{
     color: #888;
 }
 
-.navSearch{
+.navSearch {
     background-color: var(--newblack);
     color: var(--newwhite);
     width: 100%;
@@ -203,7 +197,7 @@ h1{
     transition: ease 0.7s;
 }
 
-.navSearch:hover{
+.navSearch:hover {
     background-color: var(--newwhite);
     color: var(--newblack);
     width: 100%;
@@ -214,21 +208,21 @@ h1{
     padding-bottom: 5px;
 }
 
-.hovBlue{
+.hovBlue {
     color: var(--newwhite);
     transition: 0.2s;
 }
 
-.hovBlue:hover{
+.hovBlue:hover {
     color: var(--blue);
 }
 
-.li{
+.li {
     list-style: none;
 }
 
 
-.gameCard{
+.gameCard {
     background-color: var(--newblack);
     /* padding: 1%; */
     border-radius: 2%;
@@ -241,17 +235,17 @@ h1{
     text-decoration: none;
 }
 
-.gamesList{
+.gamesList {
     column-count: 4;
-    
+
 }
 
-.screenList{
-    column-count: 2;
-    
+.screenList {
+    column-count: 1;
+
 }
 
-.sidebar{
+.sidebar {
     width: 16%;
     margin-right: 20px;
     background-color: var(--newblack);
@@ -260,48 +254,49 @@ h1{
     text-decoration: none;
 }
 
-.gamesWrapper{
+.gamesWrapper {
     width: 82%;
+    /* padding-left: 0.5%; */
 }
 
-.genreWrapper{
+.genreWrapper {
     margin-left: 2%;
     margin-right: 2%;
 }
 
 
 
-.genreDescription{
+.genreDescription {
     margin-left: 2%;
     margin-right: 2%;
 }
 
-.imgDetail{
+.imgDetail {
     background-size: cover;
     background-position: center;
 
 }
 
 
-  
-    /* height: 100%;
+
+/* height: 100%;
     width: 100%;
     background-position: center;
     background-size: cover;
 /* } */
 
 
-.user_card{
+.user_card {
     width: 100%;
     height: 100%;
     display: flex;
 }
 
-.user_data{
+.user_data {
     width: 50%;
 }
 
-.user_info{
+.user_info {
     width: 50%;
 }
 
@@ -313,33 +308,33 @@ h1{
     padding: 0;
     margin: 0;
     scroll-behavior: smooth !important;
-  }
-
-.ratingsContainer{
-    width: 70%;
-    
 }
 
-.messages{
+/* .ratingsContainer{
+    width: 50%;
+    
+} */
+
+.messages {
     height: fit-content;
     /* background-color: #00896a; */
-    
+
 }
 
-.bgBlue{
+.bgBlue {
     background-color: #0b577e;
 }
 
-.bgRed{
+.bgRed {
     background-color: #f93c4b;
 }
 
-.chatMsg{
+.chatMsg {
     background-color: var(--newwhite);
     color: var(--black);
 }
 
-.chatContainer{
+.chatContainer {
     height: 60px;
 }
 
@@ -348,10 +343,10 @@ h1{
     backdrop-filter: blur(10px) !important;
 }
 
-.drop{
+.drop {
     /* background-color: var(--newgreen) !important; */
     padding: 0% !important;
-    
+
 }
 
 .navSearchContainer {
@@ -392,21 +387,90 @@ h1{
     margin-right: 10px;
 }
 
-.titleAuto{
+.titleAuto {
     background-color: var(--newblack);
     transition: background 0.3s;
 }
 
-.autocomplete-item:hover .titleAuto{
+.autocomplete-item:hover .titleAuto {
     background-color: #444;
 }
 
-.dropAccount{
+.dropAccount {
     /* background-color: var(--newblack); */
     display: flex;
     justify-content: end;
 }
 
-.bgTransparent{
+.bgTransparent {
     background-color: transparent;
+}
+
+.gameInfo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.homeWrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.formContainer {
+    width: 50%;
+    height: 100%;
+    margin: auto;
+    padding: 5%;  
+   
+    
+}
+
+.loginImg{
+    background-image: url(./assets/login.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 75vh;
+}
+
+@media (max-width: 480px) {
+
+    .gamesList {
+        column-count: 1;
+
+    }
+
+    
+
+    .descTxt {
+        text-align: center;
+    }
+
+    aside,
+    .sidebar {
+        display: none;
+        /* visibility: hidden; */
+    }
+
+    .gamesWrapper {
+        width: 100%;
+        margin: 0;
+    }
+
+    .homeWrap {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .gameInfo{
+        margin-left: 6%;
+    }
+
+   
 }

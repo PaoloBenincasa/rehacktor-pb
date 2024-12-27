@@ -25,9 +25,8 @@ const HorizontalBarChart = ({ ratings }) => {
         {/* <span>Ratings</span>
         <span>{totalPercent}%</span> */}
       </div>
-      <div
-        className="progress"
-        style={{ height: '45px', width: '590px' }}
+      <div className="progress bg-transparent"
+        style={{ height: '3rem', width: '100%', position: 'relative' }}
       >
         {orderedRatings.map((rating) => {
           const width = rating?.percent || 0;  // Percentuale per ciascun segmento
@@ -76,7 +75,7 @@ const HorizontalBarChart = ({ ratings }) => {
                   height: '15px',
                 }}
               ></span>
-              {ratingTitle} - {Math.round(rating?.percent || 0)}%
+              {ratingTitle}: {Math.round(rating?.percent || 0)}%
             </div>
           );
         })}

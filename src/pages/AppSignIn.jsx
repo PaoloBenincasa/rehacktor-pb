@@ -15,7 +15,7 @@ function AppSignIn() {
                 password,
             })
             if (error) {
-                toast.error('Accesso non riuscito');
+                toast.error('Accesso non riuscito')
             } else {
                 toast.success('Accesso avvenuto correttamente!')
                 await new Promise((resolve) => setTimeout(resolve, 2000));
@@ -31,39 +31,12 @@ function AppSignIn() {
     return (
         <>
             {/* <div className="d-flex justify-content-center mt-5">
-                <div className="d-flex flex-column w-25 text-center">
-                    <h1>Accedi</h1>
-                    <form onSubmit={handleSignIn} className="d-flex flex-column">
-                        <label htmlFor="email">
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="inserisci la tua email" />
-                        </label>
-                        <label htmlFor="password">
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="inserisci la tua password" />
-                        </label>
-                        <button type="submit">
-                            Accedi
-                        </button>
-                        <Toaster richColors />
-                    </form>
-                </div>
-
-            </div> */}
-
-            <div className="d-flex justify-content-center mt-5">
-                <div className="d-flex flex-column w-25 text-center bg-newblack p-3 rounded shadow-lg">
+                <div className="d-flex flex-column signInContainer text-center bg-newblack p-3 rounded shadow-lg">
                     <h1 className="bg-newblack mt-2">Accedi</h1>
                     <form onSubmit={handleSignIn} className="d-flex flex-column align-items-center bg-newblack">
-
-
-
+                        
+                       
+                      
                         <label htmlFor="email" className="bg-newblack mt-2">Email</label>
                         <input
                             type="email"
@@ -82,28 +55,37 @@ function AppSignIn() {
                             className="h-75 w-75 mt-2"
                             autoComplete="password"
                         />
-                        {/* <label htmlFor="confirm_password">
-                            <input
-                                type="password"
-                                id="confirm_password"
-                                name="confirm_password"
-                                placeholder="conferma la tua password" />
-                        </label> */}
+                      
                         <button type="submit" className="mt-4 w-50 mb-3 btn btn-primary">
                             Accedi
                         </button>
                         <p className="bg-newblack">Non hai ancora un account? <Link to={`/signup`} className="bg-newblack">registrati</Link> </p>
-                        <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
-                            <div class="toast-header">
-                                <button type="button" className="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-                            </div>
-                            <div className="toast-body">
-                                Error signin in!
-                            </div>
-                        </div>
+                        <Toaster richColors />
                     </form>
                 </div>
 
+            </div> */}
+            <div className="container">
+                <div className="row mt-5 align-items-center justify-content-center">
+                    <div className="col-md-6 bg-newblack rounded shadow">
+                        <h1 className="bg-newblack mt-2">Login</h1>
+                        <form onSubmit={handleSignIn} className="p-3 bg-newblack">
+                            <div className="mb-3 bg-newblack">
+                                <label HTMLfor="email" className="form-label bg-newblack">Email address</label>
+                                <input type="email" className="form-control" id="email" aria-describedby="emailHelp" name="email" />
+                            </div>
+                            <div className="mb-3 bg-newblack">
+                                <label HTMLfor="password" className="form-label bg-newblack">Password</label>
+                                <input type="password" className="form-control" id="password" name="password" />
+                            </div>
+
+                            <button type="submit" className="btn btn-primary mb-3 mt-1">Submit</button>
+                            <p className="bg-newblack">Non hai ancora un account? <Link to={`/signup`} className="bg-newblack">registrati</Link> </p>
+
+                        </form>
+                    </div>
+                    
+                </div>
             </div>
         </>
     )

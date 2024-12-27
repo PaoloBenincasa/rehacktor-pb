@@ -26,6 +26,9 @@ export default function AppGame() {
     // const handleCloseModal = () => {
     //     setShowModal(false);
     // };
+    useEffect(()=>{
+        window.scrollTo(0,0);
+    }, []);
 
     async function readFav() {
         let { data: Favourites, error } = await supabase
@@ -150,7 +153,7 @@ export default function AppGame() {
                 }}>
 
                 </div>
-                <div className="col-md-6 bgTransparent mt-4 mb-4 d-flex flex-column justify-content-between "
+                <div className="col-md-6 bgTransparent mt-4 mb-4 gameInfo"
                     style={{
                         position: "relative",
                         zIndex: 2
@@ -158,7 +161,7 @@ export default function AppGame() {
                     <div className="bgTransparent">
                         <p className="bgTransparent"><span className="fst-italic bgTransparent">Released</span> {game.released}</p>
                         <h1 className="bgTransparent">{game.name} </h1>
-                        <div className="col-md-6 d-flex justify-content-start bgTransparent">
+                        <div className="col-md-6 d-flex justify-content-start bgTransparent ">
                             {session &&
                                 <div className="d-flex justify-content-around bgTransparent">
                                     {fav.length == 0 ? (
@@ -253,8 +256,8 @@ export default function AppGame() {
                 </div>
             </div>
             <div className="mt-5 mb-5 p-1">
-                <h5 className="txtGrey">About</h5>
-                <p className="txtW">{game.description_raw}</p>
+                <h5 className="txtGrey descTxt">About</h5>
+                <p className="txtW descTxt">{game.description_raw}</p>
             </div>
 
             <div className="screenList">

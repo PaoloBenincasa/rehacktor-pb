@@ -54,12 +54,12 @@ export default function AppHome() {
 
 
   return (
-    <div className="container-fluid d-flex mt-4">
+    <div className="container-fluid d-flex mt-4 homeWrap">
       <div className="sidebar">
         <AppAside />
 
       </div>
-      <div className="gamesWrapper ps-2">
+      <div className="gamesWrapper">
         <div className="mb-3">
           <h1> trend e novità dal mondo del gaming</h1>
           {/* {loading && <progress />} */}
