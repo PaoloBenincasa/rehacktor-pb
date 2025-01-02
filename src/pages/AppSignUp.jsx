@@ -131,6 +131,7 @@ function AppSignUp() {
                             <p className="bg-newblack">Hai già un account? <Link to={`/signin`} className="bg-newblack">accedi</Link> </p>
 
                         </form>
+                        <Toaster richColors />
                     </div>
 
                 </div>

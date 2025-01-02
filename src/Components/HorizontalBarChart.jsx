@@ -5,32 +5,30 @@ const HorizontalBarChart = ({ ratings }) => {
   const [hoveredLegend, setHoveredLegend] = useState(null);
 
   const ratingColors = {
-    exceptional: "#20a749", // Blu per "exceptional"
-    recommended: "#0d6efd", // Verde per "recommended"
-    meh: "#ff9800",         // Arancione per "meh"
-    skip: "#f44336",        // Rosso per "skip"
+    exceptional: "#20a749", 
+    recommended: "#0d6efd", 
+    meh: "#ff9800",        
+    skip: "#f44336",        
   };
 
-  // Ordina i ratings in base all'ordine desiderato
   const orderedRatings = ['exceptional', 'recommended', 'meh', 'skip'].map(title => {
     return ratings.find(rating => rating.title.toLowerCase() === title);
   });
 
-  // Somma delle percentuali per determinare la larghezza totale
+ 
   const totalPercent = orderedRatings.reduce((sum, rating) => sum + (rating?.percent || 0), 0);
 
   return (
     <div className="container bgTransparent p-0">
       <div className="d-flex justify-content-between align-items-center mb-3">
-        {/* <span>Ratings</span>
-        <span>{totalPercent}%</span> */}
+       
       </div>
       <div className="progress bg-transparent"
         style={{ height: '3rem', width: '100%', position: 'relative' }}
       >
         {orderedRatings.map((rating) => {
-          const width = rating?.percent || 0;  // Percentuale per ciascun segmento
-          const color = ratingColors[rating?.title.toLowerCase()] || '#007bff';  // Colore per il segmento
+          const width = rating?.percent || 0;  
+          const color = ratingColors[rating?.title.toLowerCase()] || '#007bff';  
 
           return (
             <div
@@ -51,18 +49,18 @@ const HorizontalBarChart = ({ ratings }) => {
         })}
       </div>
 
-      {/* Legenda sotto la barra */}
+    
       <div className="legend mt-3 bgTransparent">
         {['exceptional', 'recommended', 'meh', 'skip'].map((ratingTitle) => {
-          const rating = orderedRatings.find(r => r?.title.toLowerCase() === ratingTitle); // Trova l'oggetto corrispondente
+          const rating = orderedRatings.find(r => r?.title.toLowerCase() === ratingTitle); 
           const color = ratingColors[ratingTitle];
           return (
             <div
               key={ratingTitle}
               className={`legend-item ${hoveredLegend === ratingTitle ? 'highlighted' : ''}`}
               style={{ display: 'inline-block', marginRight: '10px', cursor: 'pointer', backgroundColor: 'transparent' }}
-              onMouseEnter={() => setHoveredLegend(ratingTitle)}  // Hover sulla legenda
-              onMouseLeave={() => setHoveredLegend(null)}  // Rimuovere il hover dalla legenda
+              onMouseEnter={() => setHoveredLegend(ratingTitle)}  
+              onMouseLeave={() => setHoveredLegend(null)}  
             >
               <span
                 style={{
@@ -84,7 +82,6 @@ const HorizontalBarChart = ({ ratings }) => {
   );
 };
 
-// Funzione per schiarire il colore al passaggio del mouse
 const lightenColor = (color) => {
   const hexToRgb = (hex) => {
     let r = 0, g = 0, b = 0;

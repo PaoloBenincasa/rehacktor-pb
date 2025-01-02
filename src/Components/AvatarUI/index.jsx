@@ -50,16 +50,16 @@ export default function Avatar({ url, size, onUpload }) {
   }
 
   return (
-    <div className='container d-flex flex-column'>
+    <div className='container d-flex flex-column bg-newblack'>
       {avatarUrl ? (
         <img
           src={avatarUrl}
           alt="Avatar"
           className="avatar image"
-          style={{ height: size, width: size, boxShadow: '2px 2px 4px white', marginBottom: '5px' }}
+          style={{ height: size, width: size, boxShadow: '1px 1px 2px gray', marginBottom: '5px' }}
         />
       ) : (
-        <div className="avatar no-image bg-light" style={{ height: size, width: size, boxShadow: '1px 1px 1px white' }} />
+        <div className="avatar no-image bg-newblack" style={{ height: size, width: size, boxShadow: '1px 1px 1px white' }} />
       )}
       <div style={{ width: size }}>
         
@@ -67,10 +67,7 @@ export default function Avatar({ url, size, onUpload }) {
           {uploading ? 'Uploading ...' : 'Upload'}
         </label>
         <input
-          // style={{
-          //   visibility: 'hidden',
-          //   position: 'absolute',
-          // }}
+          
           type="file"
           id="single"
           accept="image/*"

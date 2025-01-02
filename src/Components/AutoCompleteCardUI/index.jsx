@@ -17,22 +17,38 @@ export default function AutoCompleteCardUI({ game }) {
     const { name, background_image } = game;
 
     const handleClick = () => {
-        if (onSelect){
+        if (onSelect) {
             onSelect();
         }
-     };
+    };
 
     return (
-        <div className={`autocomplete-item ${style.cardSuggestions}`} >
-            <img
-                src={background_image}
-                alt={`Image of ${name}`}
-                className={style.imgAvatarSuggestions}
-            />
-            <Link to={`/game/${game.id}`} 
-                onClick={handleClick} 
-                className="txtW titleAuto text-decoration-none">{name}</Link>
+        // <div className={`autocomplete-item ${style.cardSuggestions}`} >
 
-        </div>
+        //     <img
+        //         src={background_image}
+        //         alt={`Image of ${name}`}
+        //         className={style.imgAvatarSuggestions}
+        //     />
+        //     <Link to={`/game/${game.id}`}
+        //         onClick={handleClick}
+        //         className="txtW titleAuto text-decoration-none">{name}
+
+        //     </Link>
+        // </div>
+        <Link
+            to={`/game/${game.id}`}
+            onClick={handleClick}
+            className={`autocomplete-item ${style.cardSuggestions} text-decoration-none`}>
+            <div className='bgTransparent'>
+                <img
+                    src={background_image}
+                    alt={`Image of ${name}`}
+                    className={style.imgAvatarSuggestions}
+                />
+                <span className="txtW titleAuto">{name}</span>
+            </div>
+        </Link>
+
     );
 }

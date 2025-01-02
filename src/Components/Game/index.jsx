@@ -5,7 +5,7 @@ import style from "./styles.module.css"
 function Game({ game }) {
     const { background_image: image } = game;
     return (
-        <Link to={`/game/${game.id}`} className="text-decoration-none">
+        <Link to={`/game/${game.id}`}  className="text-decoration-none ">
             <div className={`${style.expose} ${style.gameCard}`}>
                 <GameImage image={image} className="position-relative" />
                 <div className="position-absolute top-0 end-0 bg-newblack txtW px-2 py-1 m-2 rounded">

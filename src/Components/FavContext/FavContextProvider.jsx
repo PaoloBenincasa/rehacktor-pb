@@ -9,6 +9,7 @@ export default function FavContextProvider({ children }){
         const { data, error } = await supabase
             .from('Favourites')
             .select('*');
+           
 
         if (error) {
             console.error(error);

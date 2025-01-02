@@ -9,8 +9,8 @@ import SessionContext from "../context/SessionContext";
 
 
 export default function AppHome() {
-  
-  
+
+
   // const [userLogged, setUserLogged] = useState('');
 
   // useEffect(() => {
@@ -29,7 +29,7 @@ export default function AppHome() {
   let games = useAsyncList({
     async load({ signal, cursor }) {
 
-      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2021-06-01,2024-01-01&page=1`, {
+      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2021-04-01,2024-01-01&page=1`, {
         signal
       });
       let json = await res.json();
@@ -46,15 +46,16 @@ export default function AppHome() {
 
 
   useEffect(() => {
-    if (inView && !games.isLoading && games.items.length) {
+    if (games.items.length && inView && !games.isLoading) {
       games.loadMore();
     }
   }, [inView, games]);
-  
+
+
 
 
   return (
-    <div className="container-fluid d-flex mt-4 homeWrap">
+    <div className="container-fluid d-flex homeWrap">
       <div className="sidebar">
         <AppAside />
 
@@ -70,9 +71,8 @@ export default function AppHome() {
 
           ))}
 
+          <div ref={ref} aria-busy="true" className="loading"></div>
         </div>
-        <div ref={ref} aria-busy="true" className="loading"></div>
-        {/* <div ref={ref} aria-busy="true" className="loading"></div> */}
       </div>
 
     </div>

@@ -63,10 +63,7 @@ export default function AppGenre() {
     console.log(genre_slug);
 
     return (
-        <div
-            className="mt-3"
-
-        >
+        <div className="mt-3">
             <div
                 className="text-center mt-4 mb-3 d-flex flex-column align-items-center genreWrapper"
                 style={{
@@ -95,10 +92,10 @@ export default function AppGenre() {
                     {genreDetails?.name || genre_slug}
                 </h1>
                 <p className="bgTransparent"
-                style={{
-                    position: "relative",
-                    zIndex: 2
-                }}>{genreDetails?.games_count} games in this genre</p>
+                    style={{
+                        position: "relative",
+                        zIndex: 2
+                    }}>{genreDetails?.games_count} games in this genre</p>
                 {genreDetails && genreDetails.description && (
                     <div className="w-75 bgTransparent "
                         style={{
@@ -120,8 +117,9 @@ export default function AppGenre() {
                 </div>
 
             </div>
-            <div ref={ref} aria-busy="true" className="loading"></div>
+                <div ref={ref} aria-busy="true" className="loading"></div>
 
         </div>
     )
 }
+

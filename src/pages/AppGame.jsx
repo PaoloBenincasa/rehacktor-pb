@@ -6,28 +6,16 @@ import supabase from "../supabase/client";
 import { Toaster, toast } from "sonner";
 import ChatUI from "../Components/ChatUI";
 import HorizontalBarChart from "../Components/HorizontalBarChart";
-import DoughnutChart from "../Components/DoughnutChart";
-// import ScreenshotModal from "../Components/ScreenshotModal";
-// import { Carousel } from "react-bootstrap";
+
 import Screenshots from "../Components/Game/components/Screenshots";
 
 export default function AppGame() {
     const session = useContext(SessionContext);
     const game = useLoaderData();
     const [fav, setFav] = useState([]);
-    // const [showModal, setShowModal] = useState(false);
-    // const [screenshots, setScreenshots] = useState([]);
 
-
-    // const handleOpenModal = () => {
-    //     setShowModal(true);
-    // };
-
-    // const handleCloseModal = () => {
-    //     setShowModal(false);
-    // };
-    useEffect(()=>{
-        window.scrollTo(0,0);
+    useEffect(() => {
+        window.scrollTo(0, 0);
     }, []);
 
     async function readFav() {
@@ -93,7 +81,6 @@ export default function AppGame() {
         const inputMessage = event.currentTarget;
         const { message } = Object.fromEntries(new FormData(inputMessage));
 
-        // Check if session is valid
         if (!session || !session.user) {
             toast.error("User session is invalid. Please log in.");
             return;
@@ -159,7 +146,12 @@ export default function AppGame() {
                         zIndex: 2
                     }}>
                     <div className="bgTransparent">
-                        <p className="bgTransparent"><span className="fst-italic bgTransparent">Released</span> {game.released}</p>
+                        <div className="bgTransparent d-flex align-items-center">
+                            <p className="bgTransparent"><span className="fst-italic bgTransparent">Released</span> {game.released}</p>
+                            <div className="bgTransparent txtW ms-2 mb-3 px-2 py-1 rounded">
+                                ✪ {game.rating}
+                            </div>
+                        </div>
                         <h1 className="bgTransparent">{game.name} </h1>
                         <div className="col-md-6 d-flex justify-content-start bgTransparent ">
                             {session &&
@@ -172,6 +164,7 @@ export default function AppGame() {
                                     )}
                                 </div>
                             }
+
                         </div>
                     </div>
                     <div className="row w-100 mt-2 bgTransparent">
@@ -179,6 +172,7 @@ export default function AppGame() {
                             {/* <span className="fst-italic fs-6 bgTransparent">votato</span> */}
                             <span className="fs-4 bgTransparent"> {game.ratings_count}</span>
                             <span className="fst-italic fs-6 bgTransparent"> votes</span>
+
                         </div>
                         {game.ratings && game.ratings.length > 0 && (
                             <div className="ratingsContainer bgTransparent w-100">
@@ -199,7 +193,7 @@ export default function AppGame() {
                     }}>
                     <div className="imgDetail bgTransparent d-flex align-items-center p-1">
 
-                        <GameImage image={game.background_image}  />
+                        <GameImage image={game.background_image} />
                     </div>
 
                     <div className="container bgTransparent mt-4">
