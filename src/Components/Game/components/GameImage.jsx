@@ -19,7 +19,7 @@ export default function GameImage({ image }) {
                     objectFit: "cover",
                 }}
                 src={image}
-
+                loading="lazy"
             />
         
 

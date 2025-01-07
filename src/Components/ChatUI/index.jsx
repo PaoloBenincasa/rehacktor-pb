@@ -14,9 +14,11 @@ function ChatUI({ game }) {
     const messageRef = useRef(null);
     dayjs.extend(relativeTime);
 
-    function scrollSmoothToBottom() {
+    function scrollSmoothToTop() {
         if (messageRef.current) {
-            messageRef.current.scrollTop = messageRef.current.scrollHeight;
+            // messageRef.current.scrollTop = messageRef.current.scrollHeight;
+            messageRef.current.scrollTop = 0;
+
         }
     };
 
@@ -60,7 +62,7 @@ function ChatUI({ game }) {
     }, []);
 
     useEffect(() => {
-        scrollSmoothToBottom();
+        scrollSmoothToTop();
     }, [messages]);
 
     // if(loadingInitial){
@@ -68,17 +70,20 @@ function ChatUI({ game }) {
     // }
 
     return (
-        <div className="messages" ref={messageRef}>
+        <div ref={messageRef} >
             {error && <article>{error}</article>}
             {
                 messages &&
-                messages.map((message) => (
-                    <div key={message.id} className="w-75 ms-5 ps-3">
-                        
-                            <p className="ChatUser">{message.profile_username}</p>
-                            <p className="chatMsg">{message.content}</p>
-                            <p className="chatDate">{dayjs().to(dayjs(message.created_at))}</p>
-                        
+                messages.slice().reverse().map((message) => (
+                    <div className="w-100 d-flex justify-content-center">
+
+                        <div key={message.id} className="w-50  mb-3 ps-3 pe-3 bg-newblack rounded">
+
+                            <p className="ChatUser bg-newblack rounded p-2 mb-0">{message.profile_username}</p>
+                            <p className="chatMsg rounded p-2 mb-0 ">{message.content}</p>
+                            <p className="chatDate bg-newblack  rounded p-2 mb-1 fst-italic">{dayjs().to(dayjs(message.created_at))}</p>
+
+                        </div>
                     </div>
                 ))
             }

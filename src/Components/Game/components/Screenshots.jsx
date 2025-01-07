@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router";
 
 const Screenshots = ({ gameId, gameName }) => {
     const [screenshots, setScreenshots] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedScreenshot, setSelectedScreenshot] = useState(null);
 
     // useEffect(() => {
     //     if (show) {
@@ -36,10 +38,24 @@ const Screenshots = ({ gameId, gameName }) => {
                             src={screenshot.image}
                             alt={`Screenshot ${screenshot.id}`}
                             className="d-block w-100"
+                            style={{ cursor: "pointer" }}
+                            onClick={() => setSelectedScreenshot(screenshot.image)}
                         />
                     </div>
                 </div>
             ))}
+
+            {selectedScreenshot && (
+                <div className="modal-overlay" onClick={() => setSelectedScreenshot(null)}>
+                    <div className="modal-content">
+                        <img
+                            src={selectedScreenshot}
+                            alt="Selected Screenshot"
+                            className="d-block w-100"
+                        />
+                    </div>
+                </div>
+            )}
         </>
     );
 };

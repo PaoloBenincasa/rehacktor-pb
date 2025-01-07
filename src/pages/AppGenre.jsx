@@ -108,16 +108,16 @@ export default function AppGenre() {
                 )}
             </div>
 
-            <div className="genreWrapper">
+            <div className="genreWrapper mt-4">
 
-                <div className="gamesList">
+                <div className="gamesGenreList">
                     {genreGames.map((game, index) => (
                         <Game key={`${game.id}-${index}`} game={game} />
                     ))}
+                    <div ref={ref} aria-busy="true" className="loading"></div>
                 </div>
 
             </div>
-                <div ref={ref} aria-busy="true" className="loading"></div>
 
         </div>
     )

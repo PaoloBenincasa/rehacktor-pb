@@ -47,19 +47,19 @@ export default function AppNavbar() {
         <>
             
 
-            <nav class="navbar navbar-expand-lg navbar-light bgNewblack">
-                <div class="container-fluid p-0">
-                    <div class="row w-100 align-items-center justify-content-between">
+            <nav className="navbar navbar-expand-lg navbar-light bgNewblack">
+                <div className="container-fluid p-0">
+                    <div className="row w-100 align-items-center justify-content-between">
                         <Link to={`/`} className="text-decoration-none col-md-2 col-2">
 
-                            <div class="col-md-2 col-2 d-flex align-items-center fs-5 ps-4">
-                                <i class="bi bi-rocket-takeoff fs-4"></i>
+                            <div className="col-md-2 col-2 d-flex align-items-center fs-5 ps-4">
+                                <i className="bi bi-rocket-takeoff fs-4"></i>
                                 <p className="mt-3 txtW chakra ps-2 logo">ReHacktor</p>
                             </div>
                         </Link>
 
 
-                        <div class="col-md-8 col-7 search-bar">
+                        <div className="col-md-8 col-7 search-bar ps-5">
                             <div className="navSearchContainer position-relative">
                                 <input
                                     type="search"
@@ -84,7 +84,7 @@ export default function AppNavbar() {
                         </div>
 
 
-                        <div class="col-md-2 col-2 text-md-end profile-section">
+                        <div className="col-md-2 col-2 text-md-end profile-section">
                             <div>
                                 {session ? (
                                     <div className="dropdown dropAccount">
@@ -114,7 +114,7 @@ export default function AppNavbar() {
                                 ) : (
                                     <div className="dropdown dropAccount">
                                         <a
-                                            className="btn bgTransparent dropdown-toggle"
+                                            className="btn bgTransparent dropdown-toggle "
                                             href="#"
                                             role="button"
                                             data-bs-toggle="dropdown"

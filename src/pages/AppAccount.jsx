@@ -73,72 +73,78 @@ export default function AppAccount() {
     }
 
     return (
-     
+
 
         <div className="container mb-2">
-            <div className="row mt-3  align-items-center justify-content-center">
-                <div className="col-md-6 bg-newblack rounded shadow">
+            <div className="row mt-3 bg-newblack  align-items-center justify-content-center">
+                <div className="bg-newblack ">
                     <h1 className="bg-newblack mt-2">Update profile</h1>
                     <form onSubmit={updateProfile} className="p-3 bg-newblack">
-                        <div className='d-flex justify-content-center '>
-                            <div className='d-flex flex-column'>
+                        <div className='row bg-newblack'>
 
-                                <Avatar
-                                    url={avatar_url}
-                                    size={150}
+                            <div className=' col-md-6 '>
+                                <div className='d-flex flex-column'>
 
-                                    onUpload={(event, url) => {
-                                        updateProfile(event, url)
-                                    }}
-                                />
+                                    <Avatar
+                                        url={avatar_url}
+                                        size={150}
+
+                                        onUpload={(event, url) => {
+                                            updateProfile(event, url)
+                                        }}
+                                    />
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='mb-3 bg-newblack d-flex flex-column'>
-                            <label htmlFor="email" className='bg-newblack me-2'>Email</label>
-                            <input id="email" type="text" value={session.user.email} disabled />
-                        </div>
-                        <div className='mb-3 bg-newblack d-flex flex-column'>
-                            <label htmlFor="username" className='bg-newblack me-2'>Name</label>
-                            <input
-                                id="username"
-                                type="text"
-                                required
-                                value={username || ''}
-                                onChange={(e) => setUsername(e.target.value)}
-                            />
-                        </div>
-                        <div className='mb-3 bg-newblack d-flex flex-column'>
-                            <label htmlFor="first_name" className='bg-newblack me-2'>first name</label>
-                            <input
-                                id="first_name"
-                                type="text"
-                                value={first_name || ''}
-                                onChange={(e) => setFirst_name(e.target.value)}
-                            />
-                        </div>
-                        <div className='mb-3 bg-newblack d-flex flex-column'>
-                            <label htmlFor="last_name" className='bg-newblack me-2'>last name</label>
-                            <input
-                                id="last_name"
-                                type="text"
-                                value={last_name || ''}
-                                onChange={(e) => setLast_name(e.target.value)}
-                            />
-                        </div>
-                        <div className='d-flex justify-content-center p-1 m-2 gap-3 bg-newblack'>
+                            <div className='col-md-6 mt-3 bg-newblack'>
 
-                            <div>
-                                <button className="button block primary" type="submit" disabled={loading}>
-                                    {loading ? 'Loading ...' : 'Update'}
-                                </button>
+                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                    <label htmlFor="email" className='bg-newblack me-2 ms-1'>Email</label>
+                                    <input id="email" type="text" value={session.user.email} disabled />
+                                </div>
+                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                    <label htmlFor="username" className='bg-newblack me-2 ms-1'>Name</label>
+                                    <input
+                                        id="username"
+                                        type="text"
+                                        required
+                                        value={username || ''}
+                                        onChange={(e) => setUsername(e.target.value)}
+                                    />
+                                </div>
+                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                    <label htmlFor="first_name" className='bg-newblack me-2 ms-1'>first name</label>
+                                    <input
+                                        id="first_name"
+                                        type="text"
+                                        value={first_name || ''}
+                                        onChange={(e) => setFirst_name(e.target.value)}
+                                    />
+                                </div>
+                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                    <label htmlFor="last_name" className='bg-newblack me-2 ms-1'>last name</label>
+                                    <input
+                                        id="last_name"
+                                        type="text"
+                                        value={last_name || ''}
+                                        onChange={(e) => setLast_name(e.target.value)}
+                                    />
+                                </div>
+                                <div className='d-flex justify-content-center p-1 m-2 gap-3 bg-newblack'>
+
+                                    
+                                        <button className="btn btn-primary mb-3 rounded" type="submit" disabled={loading}>
+                                            {loading ? 'Loading ...' : 'Update'}
+                                        </button>
+                                    
+
+                                    
+                                        <button className="btn btn-danger mb-3 rounded" type="button" onClick={() => supabase.auth.signOut()}>
+                                            Sign Out
+                                        </button>
+                                    
+                                </div>
                                 <Toaster richColors />
-                            </div>
-
-                            <div>
-                                <button className="button block" type="button" onClick={() => supabase.auth.signOut()}>
-                                    Sign Out
-                                </button>
                             </div>
                         </div>
                     </form>

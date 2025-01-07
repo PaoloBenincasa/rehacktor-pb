@@ -50,7 +50,7 @@ export default function Avatar({ url, size, onUpload }) {
   }
 
   return (
-    <div className='container d-flex flex-column bg-newblack'>
+    <div className='container d-flex flex-column p-5 gap-1'>
       {avatarUrl ? (
         <img
           src={avatarUrl}
@@ -63,7 +63,7 @@ export default function Avatar({ url, size, onUpload }) {
       )}
       <div style={{ width: size }}>
         
-        <label className="btn" htmlFor="single">
+        <label className="btn bg-primary mt-1" htmlFor="single">
           {uploading ? 'Uploading ...' : 'Upload'}
         </label>
         <input
@@ -73,6 +73,7 @@ export default function Avatar({ url, size, onUpload }) {
           accept="image/*"
           onChange={uploadAvatar}
           disabled={uploading}
+          className='mt-3'
         />
       </div>
     </div>

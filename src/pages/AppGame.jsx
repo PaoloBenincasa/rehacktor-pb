@@ -6,7 +6,6 @@ import supabase from "../supabase/client";
 import { Toaster, toast } from "sonner";
 import ChatUI from "../Components/ChatUI";
 import HorizontalBarChart from "../Components/HorizontalBarChart";
-
 import Screenshots from "../Components/Game/components/Screenshots";
 
 export default function AppGame() {
@@ -35,7 +34,11 @@ export default function AppGame() {
     async function insertIntoFav(game) {
         const { data, error } = await supabase
             .from('Favourites')
-            .insert([{ profile_id: session.user.id, game_id: game.id, game_name: game.name },])
+            .insert([{
+                profile_id: session.user.id,
+                game_id: game.id,
+                game_name: game.name
+            },])
             .select();
 
         if (error) {
@@ -68,7 +71,6 @@ export default function AppGame() {
 
         }
     }
-
 
 
 
@@ -157,9 +159,9 @@ export default function AppGame() {
                             {session &&
                                 <div className="d-flex justify-content-around bgTransparent">
                                     {fav.length == 0 ? (
-                                        <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-primary mb-3 rounded">Aggiungi ai preferiti</button>
+                                        <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-primary mb-3 rounded">Add to favourites</button>
                                     ) : (
-                                        <button onClick={() => removeFromFav(game)} type="button" className="btn btn-danger mb-3 rounded">Rimuovi dai preferiti</button>
+                                        <button onClick={() => removeFromFav(game)} type="button" className="btn btn-danger mb-3 rounded">Remove from favourites</button>
 
                                     )}
                                 </div>
@@ -169,13 +171,12 @@ export default function AppGame() {
                     </div>
                     <div className="row w-100 mt-2 bgTransparent">
                         <div className="col-md-6 bgTransparent">
-                            {/* <span className="fst-italic fs-6 bgTransparent">votato</span> */}
                             <span className="fs-4 bgTransparent"> {game.ratings_count}</span>
                             <span className="fst-italic fs-6 bgTransparent"> votes</span>
 
                         </div>
                         {game.ratings && game.ratings.length > 0 && (
-                            <div className="ratingsContainer bgTransparent w-100">
+                            <div className="ratingsContainer bgTransparent w-100" >
                                 <HorizontalBarChart ratings={game.ratings} />
                             </div>
                         )}
@@ -191,7 +192,7 @@ export default function AppGame() {
                         position: "relative",
                         zIndex: 2
                     }}>
-                    <div className="imgDetail bgTransparent d-flex align-items-center p-1">
+                    <div className="imgDetail bgTransparent d-flex align-items-center p-1 " loading="lazy">
 
                         <GameImage image={game.background_image} />
                     </div>
@@ -199,7 +200,7 @@ export default function AppGame() {
                     <div className="container bgTransparent mt-4">
                         <div className="row justify-content-between bgTransparent ">
                             <div className="col-md-6 bgTransparent" >
-                                <p className="txtGrey bgTransparent">generi</p>
+                                <p className="txtGrey bgTransparent">genres</p>
                                 <p className="txtW bgTransparent">{game.genres.map((genre, index) => (
                                     <span key={genre.id} className="bgTransparent">
                                         <Link to={`/games/${genre.slug}`} className="text-decoration-none hovBlue bgTransparent">
@@ -228,7 +229,7 @@ export default function AppGame() {
                                 ))}</p>
                             </div>
                             <div className="col-md-6 bgTransparent">
-                                <p className="txtGrey bgTransparent">console</p>
+                                <p className="txtGrey bgTransparent">platforms</p>
                                 <p className="txtW bgTransparent">
                                     {game.platforms.map((item, index) => (
                                         <span key={item.platform.id} className="bgTransparent">
@@ -241,34 +242,47 @@ export default function AppGame() {
                         </div>
                     </div>
 
-                    {/* <ScreenshotModal
-                        gameId={game.id}
-                        gameName={game.name}
-                        show={showModal}
-                        onClose={handleCloseModal}
-                        /> */}
+                   
                 </div>
             </div>
-            <div className="mt-5 mb-5 p-1">
-                <h5 className="txtGrey descTxt">About</h5>
-                <p className="txtW descTxt">{game.description_raw}</p>
+
+            <div className="d-flex">
+
+                <div className="mt-5 mb-5 p-1 about">
+                    <h5 className="txtGrey descTxt">About</h5>
+                    <p className="txtW descTxt">{game.description_raw}</p>
+                </div>
             </div>
 
+
+            <div>
+
+                <h5 className="txtGrey descTxt p-1 w-100">Screenshots</h5>
+            </div>
             <div className="screenList">
-                <Screenshots gameId={game.id} gameName={game.name} />
+                <Screenshots gameId={game.id} gameName={game.name}  />
             </div>
-            <div className="mt-3">
-                <ChatUI game={game} />
+
+
+
+            <div className="mt-5 mb-5 d-flex flex-column align-items-center">
+                <h5 className="txtGrey mb-0 ">Comments</h5>
+                <div className="mt-3 mb-3 w-100  h-100">
+                    <ChatUI game={game} />
+                </div>
+                <div className="mb-5 pb-5">
+                    <form onSubmit={handleMessageSubmit}>
+                        <fieldset role="group" className="d-flex flex-column align-items-center">
+                            <textarea type="text" name="message" rows="6" cols="60" placeholder="Write a comment..." className="p-1" />
+                            <input type="submit" value="Publish" className="btn btn-primary mt-5 w-25" />
+                        </fieldset>
+                    </form>
+                    <Toaster richColors />
+                </div>
             </div>
-            <div className="d-flex justify-content-center mb-5">
-                <form onSubmit={handleMessageSubmit}>
-                    <fieldset role="group">
-                        <input type="text" name="message" placeholder="Chat..." />
-                        <input type="submit" value="Invia" className="bg-blue" />
-                    </fieldset>
-                </form>
-                <Toaster richColors />
-            </div>
+
+
+
             <Toaster richColors />
         </div>
     )

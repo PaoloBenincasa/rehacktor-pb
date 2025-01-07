@@ -29,7 +29,7 @@ export default function AppHome() {
   let games = useAsyncList({
     async load({ signal, cursor }) {
 
-      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2021-04-01,2024-01-01&page=1`, {
+      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2023-05-01,2024-01-01&page=1`, {
         signal
       });
       let json = await res.json();
@@ -62,7 +62,7 @@ export default function AppHome() {
       </div>
       <div className="gamesWrapper">
         <div className="mb-3">
-          <h1> trend e novità dal mondo del gaming</h1>
+          <h1> all your videogames in one place</h1>
           {/* {loading && <progress />} */}
         </div>
         <div className="gamesList">
