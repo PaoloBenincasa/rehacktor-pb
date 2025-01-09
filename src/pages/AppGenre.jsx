@@ -84,17 +84,21 @@ export default function AppGenre() {
                     zIndex: 1,
                     backgroundColor: "rgba(0, 0, 0, 0.7)"
                 }}></div>
-                <h1 className="bgTransparent"
+                <h1 className="bgTransparent mt-2"
                     style={{
                         position: "relative",
-                        zIndex: 2
+                        zIndex: 2,
+                        textDecoration: "underline",
+                        textDecorationColor: "var(--blue)",
                     }}>
-                    {genreDetails?.name || genre_slug}
+                    {genreDetails?.name || genre_slug} games
                 </h1>
                 <p className="bgTransparent"
                     style={{
                         position: "relative",
-                        zIndex: 2
+                        zIndex: 2,
+                        textDecoration: "underline",
+                        textDecorationColor: "var(--blue)",
                     }}>{genreDetails?.games_count} games in this genre</p>
                 {genreDetails && genreDetails.description && (
                     <div className="w-75 bgTransparent "

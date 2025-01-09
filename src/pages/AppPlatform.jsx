@@ -153,19 +153,23 @@ export default function AppPlatform() {
                     }}
                 ></div>
                 <h1
-                    className="bgTransparent"
+                    className="bgTransparent mt-2"
                     style={{
                         position: "relative",
                         zIndex: 2,
+                        textDecoration: "underline",
+                        textDecorationColor: "var(--blue)",
                     }}
                 >
-                    {platformDetails?.name || platform_id}
+                    Games for {platformDetails?.name || platform_id}
                 </h1>
                 <p
                     className="bgTransparent"
                     style={{
                         position: "relative",
                         zIndex: 2,
+                        textDecoration: "underline",
+                        textDecorationColor: "var(--blue)",
                     }}
                 >
                     {platformDetails?.games_count} games available for this platform

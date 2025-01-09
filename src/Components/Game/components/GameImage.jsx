@@ -15,7 +15,7 @@ export default function GameImage({ image }) {
                 }}
                 style={{
                     width: "100%",
-                    height: "80%",
+                    height: "70%",
                     objectFit: "cover",
                 }}
                 src={image}
