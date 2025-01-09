@@ -6,11 +6,7 @@ const Screenshots = ({ gameId, gameName }) => {
     const [loading, setLoading] = useState(true);
     const [selectedScreenshot, setSelectedScreenshot] = useState(null);
 
-    // useEffect(() => {
-    //     if (show) {
-    //         fetchScreenshots();
-    //     }
-    // }, [show]);
+   
     useEffect(() => {
         const fetchScreenshots = async () => {
             try {

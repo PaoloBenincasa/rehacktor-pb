@@ -15,7 +15,7 @@ export default function AppGenre() {
     });
 
     function stripHTML(html) {
-        return html.replace(/<\/?[^>]+(>|$)/g, ""); // Rimuove i tag HTML
+        return html.replace(/<\/?[^>]+(>|$)/g, ""); 
     }
 
     function decodeApostrophe(text) {

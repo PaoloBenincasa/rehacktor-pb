@@ -59,7 +59,7 @@ export default function Avatar({ url, size, onUpload }) {
           style={{ height: size, width: size, boxShadow: '1px 1px 2px gray', marginBottom: '5px' }}
         />
       ) : (
-        <div className="avatar no-image bg-newblack" style={{ height: size, width: size, boxShadow: '1px 1px 1px white' }} />
+        <div className="avatar no-image bg-newblack" style={{ height: size, width: size, boxShadow: '1px 1px 1px gray' }} />
       )}
       <div style={{ width: size }}>
         

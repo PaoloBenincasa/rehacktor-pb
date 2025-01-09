@@ -10,22 +10,6 @@ import SessionContext from "../context/SessionContext";
 
 export default function AppHome() {
 
-
-  // const [userLogged, setUserLogged] = useState('');
-
-  // useEffect(() => {
-  //   async function getSession(params) {
-  //     const { data, error } = await supabase.auth.getSession();
-  //     const {
-  //       data: { user },
-  //     } = await supabase.auth.getUser()
-  //     let { first_name } = user.user_metadata
-  //     setUserLogged(first_name);
-
-  //   }
-  //   getSession();
-  // }, [])
-
   let games = useAsyncList({
     async load({ signal, cursor }) {
 

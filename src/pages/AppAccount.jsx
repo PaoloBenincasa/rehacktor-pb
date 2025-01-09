@@ -113,7 +113,7 @@ export default function AppAccount() {
                                     />
                                 </div>
                                 <div className='mb-3 bg-newblack d-flex flex-column'>
-                                    <label htmlFor="first_name" className='bg-newblack me-2 ms-1'>first name</label>
+                                    <label htmlFor="first_name" className='bg-newblack me-2 ms-1'>First name</label>
                                     <input
                                         id="first_name"
                                         type="text"
@@ -122,7 +122,7 @@ export default function AppAccount() {
                                     />
                                 </div>
                                 <div className='mb-3 bg-newblack d-flex flex-column'>
-                                    <label htmlFor="last_name" className='bg-newblack me-2 ms-1'>last name</label>
+                                    <label htmlFor="last_name" className='bg-newblack me-2 ms-1'>Last name</label>
                                     <input
                                         id="last_name"
                                         type="text"

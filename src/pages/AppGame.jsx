@@ -3,10 +3,14 @@ import { useLoaderData, Link } from "react-router";
 import GameImage from "../Components/Game/components/GameImage";
 import SessionContext from "../context/SessionContext";
 import supabase from "../supabase/client";
-import { Toaster, toast } from "sonner";
+// import { Toaster, toast } from "sonner";
 import ChatUI from "../Components/ChatUI";
 import HorizontalBarChart from "../Components/HorizontalBarChart";
 import Screenshots from "../Components/Game/components/Screenshots";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 
 export default function AppGame() {
     const session = useContext(SessionContext);
@@ -46,7 +50,7 @@ export default function AppGame() {
             console.log(error.message);
 
         } else {
-            toast.success('insert success!')
+            toast.success('Added to favourites')
             readFav();
             console.log(data);
 
@@ -65,7 +69,7 @@ export default function AppGame() {
 
 
         } else {
-            toast.success('removed successfylly')
+            toast.success('removed successfully')
             readFav();
 
 
@@ -84,7 +88,7 @@ export default function AppGame() {
         const { message } = Object.fromEntries(new FormData(inputMessage));
 
         if (!session || !session.user) {
-            toast.error("User session is invalid. Please log in.");
+            toast("User session is invalid. Please log in.");
             return;
         }
 
@@ -112,7 +116,6 @@ export default function AppGame() {
             toast.error("Message cannot be empty.");
         }
     }
-
 
     useEffect(() => {
         if (session) readFav();
@@ -233,7 +236,11 @@ export default function AppGame() {
                                 <p className="txtW bgTransparent">
                                     {game.platforms.map((item, index) => (
                                         <span key={item.platform.id} className="bgTransparent">
-                                            {item.platform.name}{index < game.platforms.length - 1 && ', '}
+                                            <Link to={`/platforms/${item.platform.slug}` } className="text-decoration-none hovBlue bgTransparent">
+
+                                                {item.platform.name}
+                                            </Link>
+                                            {index < game.platforms.length - 1 && ', '}
                                         </span>
                                     ))}
                                 </p>
@@ -242,7 +249,7 @@ export default function AppGame() {
                         </div>
                     </div>
 
-                   
+
                 </div>
             </div>
 
@@ -260,7 +267,7 @@ export default function AppGame() {
                 <h5 className="txtGrey descTxt p-1 w-100">Screenshots</h5>
             </div>
             <div className="screenList">
-                <Screenshots gameId={game.id} gameName={game.name}  />
+                <Screenshots gameId={game.id} gameName={game.name} />
             </div>
 
 
@@ -277,13 +284,27 @@ export default function AppGame() {
                             <input type="submit" value="Publish" className="btn btn-primary mt-5 w-25" />
                         </fieldset>
                     </form>
-                    <Toaster richColors />
+                    {/* <Toaster richColors /> */}
+
+
                 </div>
+                <ToastContainer position="bottom-right"
+                    autoClose={2000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick={true}
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="light"
+
+                />
             </div>
 
 
 
-            <Toaster richColors />
+
         </div>
     )
 }

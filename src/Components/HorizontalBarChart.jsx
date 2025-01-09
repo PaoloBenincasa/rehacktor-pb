@@ -58,7 +58,12 @@ const HorizontalBarChart = ({ ratings }) => {
             <div
               key={ratingTitle}
               className={`legend-item ${hoveredLegend === ratingTitle ? 'highlighted' : ''}`}
-              style={{ display: 'inline-block', marginRight: '10px', cursor: 'pointer', backgroundColor: 'transparent' }}
+              style={{ 
+                display: 'inline-block', 
+                marginRight: '10px', 
+                cursor: 'pointer', 
+                backgroundColor: 'transparent', 
+                color: hoveredLegend === ratingTitle ? ratingColors[ratingTitle] : '#fafffd' }}
               onMouseEnter={() => setHoveredLegend(ratingTitle)}  
               onMouseLeave={() => setHoveredLegend(null)}  
             >

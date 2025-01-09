@@ -75,9 +75,9 @@ function ChatUI({ game }) {
             {
                 messages &&
                 messages.slice().reverse().map((message) => (
-                    <div className="w-100 d-flex justify-content-center">
+                    <div key={message.id}  className="w-100 d-flex justify-content-center">
 
-                        <div key={message.id} className="w-50  mb-3 ps-3 pe-3 bg-newblack rounded">
+                        <div className="w-50  mb-3 ps-3 pe-3 bg-newblack rounded">
 
                             <p className="ChatUser bg-newblack rounded p-2 mb-0">{message.profile_username}</p>
                             <p className="chatMsg rounded p-2 mb-0 ">{message.content}</p>
@@ -88,6 +88,7 @@ function ChatUI({ game }) {
                 ))
             }
         </div>
+    
     )
 
 }
