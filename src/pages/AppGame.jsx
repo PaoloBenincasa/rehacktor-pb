@@ -106,14 +106,14 @@ export default function AppGame() {
                 .select();
 
             if (error) {
-                toast.error(`Error sending message: ${error.message}`);
+                toast.error(`Error posting comment: ${error.message}`);
             } else {
-                toast.success("Message sent successfully!");
+                toast.success("Comment posted!");
                 inputMessage.reset();
                 console.log("Response:", data);
             }
         } else {
-            toast.error("Message cannot be empty.");
+            toast.error("Comment cannot be empty.");
         }
     }
 
@@ -123,8 +123,8 @@ export default function AppGame() {
 
     return (
 
-        <div className="container mt-5" >
-            <div className="row vh-75 justify-content-center "
+        <div className="container mt-3" >
+            <div className="row vh-75  justify-content-center  "
                 style={{
                     backgroundImage: `url(${game.background_image_additional})`,
                     backgroundSize: "cover",
@@ -132,7 +132,7 @@ export default function AppGame() {
                     backgroundRepeat: "no-repeat",
                     position: "relative",
                     height: "100%",
-
+                    loading: "lazy"
                 }}>
                 <div style={{
                     position: "absolute",
@@ -157,14 +157,14 @@ export default function AppGame() {
                                 ✪ {game.rating}
                             </div>
                         </div>
-                        <h1 className="bgTransparent">{game.name} </h1>
+                        <h1 className="bgTransparent animate__animated animate__fadeInLeft">{game.name} </h1>
                         <div className="col-md-6 d-flex justify-content-start bgTransparent ">
                             {session &&
                                 <div className="d-flex justify-content-around bgTransparent">
                                     {fav.length == 0 ? (
-                                        <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-primary mb-3 rounded">Add to favourites</button>
+                                        <button onClick={() => insertIntoFav(game)} type="button" className="btn btn-outline-primary mb-3 rounded text-start text-light"><span className="fw-light">Add to</span>  Favourites</button>
                                     ) : (
-                                        <button onClick={() => removeFromFav(game)} type="button" className="btn btn-danger mb-3 rounded">Remove from favourites</button>
+                                        <button onClick={() => removeFromFav(game)} type="button" className="btn btn-outline-danger mb-3 rounded text-start text-light"><span className="fw-light">Remove from</span> Favourites</button>
 
                                     )}
                                 </div>
@@ -179,7 +179,7 @@ export default function AppGame() {
 
                         </div>
                         {game.ratings && game.ratings.length > 0 && (
-                            <div className="ratingsContainer bgTransparent w-100" >
+                            <div className="ratingsContainer bgTransparent w-100 " >
                                 <HorizontalBarChart ratings={game.ratings} />
                             </div>
                         )}
@@ -195,7 +195,7 @@ export default function AppGame() {
                         position: "relative",
                         zIndex: 2
                     }}>
-                    <div className="imgDetail bgTransparent d-flex align-items-center p-1 " loading="lazy">
+                    <div className="imgDetail bgTransparent d-flex align-items-center p-1 animate__animated animate__fadeInRight" loading="lazy">
 
                         <GameImage image={game.background_image} />
                     </div>
@@ -266,7 +266,7 @@ export default function AppGame() {
 
                 <h5 className="txtGrey descTxt p-1 w-100">Screenshots</h5>
             </div>
-            <div className="screenList">
+            <div className="screenList" loading="lazy">
                 <Screenshots gameId={game.id} gameName={game.name} />
             </div>
 
@@ -280,8 +280,8 @@ export default function AppGame() {
                 <div className="mb-5 pb-5">
                     <form onSubmit={handleMessageSubmit}>
                         <fieldset role="group" className="d-flex flex-column align-items-center">
-                            <textarea type="text" name="message" rows="6" cols="60" placeholder="Write a comment..." className="p-1" />
-                            <input type="submit" value="Publish" className="btn btn-primary mt-5 w-25" />
+                            <textarea type="text" name="message" rows="6" cols="60" placeholder="Write a comment..." className="p-1 bg-blackk" />
+                            <input type="submit" value="Publish" className="btn btn-primary mt-5 w-25 " />
                         </fieldset>
                     </form>
                     {/* <Toaster richColors /> */}

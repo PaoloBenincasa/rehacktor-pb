@@ -59,7 +59,7 @@ export default function AppProfile() {
     <div className="container p-5">
       <article>
         <header>
-          <h1>Welcome back {username}!</h1>
+          <h1>Hey {username}!</h1>
         </header>
         <div className="user_card">
           <section className="user_data m-2">

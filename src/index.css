@@ -10,16 +10,32 @@
     --newgreen: #00896a;
     --blue: #156794;
 
-
+    color: var(--newwhite);
     /* background-color: var(--newblack); */
     font-family: "Chakra Petch", sans-serif;
 
 }
 
 * {
-    background-color: var(--black);
+    /* background-color: var(--black); */
     color: var(--newwhite);
     font-family: "Chakra Petch", sans-serif;
+}
+
+
+
+.body{
+    background-color: var(--newblack);
+}
+
+.glass {
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.81);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5.5px);
+    -webkit-backdrop-filter: blur(5.5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .genreSide {
@@ -49,7 +65,7 @@
 
 }
 
-.bg-black {
+.bg-blackk {
     background-color: var(--black);
 }
 
@@ -177,39 +193,36 @@ h1 {
     height: 50px;
     border-radius: 30px;
     padding-left: 35px;
-    border: none;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    /* border: none; */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
 }
 
-.search-icon {
+/* .search-icon {
     position: absolute;
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
     color: #888;
-}
+} */
 
 .navSearch {
     background-color: var(--newblack);
     color: var(--newwhite);
     width: 100%;
     height: 45px;
-    border-radius: 25px;
+    border-radius: 20px;
     padding-left: 15px;
     padding-right: 15px;
     padding-bottom: 5px;
-    transition: ease 0.7s;
+    transition: ease 0.5s;
+    
 }
 
 .navSearch:hover {
     background-color: var(--newwhite);
     color: var(--newblack);
-    width: 100%;
-    height: 45px;
-    border-radius: 25px;
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-bottom: 5px;
+    
+  
 }
 
 .hovBlue {
@@ -241,19 +254,19 @@ h1 {
 
 .gamesList {
     column-count: 4;
-    
+
 
 }
 
 .gamesGenreList {
     column-count: 5;
-    
+
 
 }
 
 .screenList {
     column-count: 2;
-    
+
 
 }
 
@@ -319,10 +332,10 @@ h1 {
     overflow-x: hidden;
     padding: 0;
     margin: 0;
-    scroll-behavior: smooth !important; 
+    scroll-behavior: smooth !important;
     display: inline-block;
     justify-content: center;
-    
+
 }
 
 
@@ -542,13 +555,13 @@ h1 {
 
     .gamesGenreList {
         column-count: 1;
-        
-    
+
+
     }
 
-    .screenList{
+    .screenList {
         column-count: 1;
     }
 
-    
+
 }

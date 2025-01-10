@@ -47,7 +47,7 @@ export default function AppNavbar() {
         <>
             
 
-            <nav className="navbar navbar-expand-lg navbar-light bgNewblack">
+            <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid p-0">
                     <div className="row w-100 align-items-center justify-content-between">
                         <Link to={`/`} className="text-decoration-none col-md-2 col-2">

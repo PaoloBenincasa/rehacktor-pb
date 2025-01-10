@@ -2,7 +2,6 @@ import { useLoaderData, Link } from "react-router"
 
 export default function AppAside() {
     const { genres, platforms } = useLoaderData();
-    console.log(platforms);
     
     return (
         <aside>
@@ -17,6 +16,7 @@ export default function AppAside() {
                 ))}
                 
             </ul>
+                
 
             <ul className="genreSide ps-1 ">
                 <h5 className="genreSide ms-2 mb-3 mt-1 pt-1 chakra">Platforms</h5>

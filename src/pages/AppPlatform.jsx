@@ -66,17 +66,15 @@ export default function AppPlatform() {
         threshold: 0,
     });
 
-    // Funzione per rimuovere HTML dai testi
     function stripHTML(html) {
         return html.replace(/<\/?[^>]+(>|$)/g, "");
     }
 
-    // Funzione per decodificare gli apostrofi
     function decodeApostrophe(text) {
         return text.replace(/&#39;/g, "'");
     }
 
-    // Funzione per recuperare i dettagli della piattaforma
+   
     async function fetchPlatformDetails() {
         const platformId = platformMappings[platform_id]; // Usa il mapping per ottenere l'ID numerico
 
@@ -92,19 +90,19 @@ export default function AppPlatform() {
         }
     }
 
-    // Funzione per recuperare i giochi per la piattaforma
+    
     async function fetchPlatformGames(page = 1) {
-        const platformId = platformMappings[platform_id]; // Usa il mapping per ottenere l'ID numerico
+        const platformId = platformMappings[platform_id]; 
 
         try {
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&platforms=${platformId}&page=${page}`
             );
             const json = await response.json();
-            console.log("INFINITO", json.next)
+            
             if (json.results && json.results.length > 0) {
                 setGames((prevGames) => [...prevGames, ...json.results]);
-                setNextPage(json.next); // Aggiorniamo la pagina successiva
+                setNextPage(json.next); 
             } else {
                 console.log("No games found for this platform.");
                 setGames([]);
@@ -116,19 +114,19 @@ export default function AppPlatform() {
 
     useEffect(() => {
         fetchPlatformDetails();
-        fetchPlatformGames(); // Recupera i giochi iniziali
+        fetchPlatformGames(); 
     }, [platform_id]);
 
     useEffect(() => {
         if (inView && nextPage && !isLoading) {
-            // setIsLoading(true);
-            fetchPlatformGames(nextPage); // Carica i giochi della pagina successiva
+            setIsLoading(true);
+            fetchPlatformGames(nextPage); 
         }
     }, [inView, nextPage, isLoading]);
 
     return (
         <div className="mt-3">
-            {/* Rendering dei dettagli della piattaforma */}
+           
             <div
                 className="text-center mt-4 mb-3 d-flex flex-column align-items-center genreWrapper"
                 style={{

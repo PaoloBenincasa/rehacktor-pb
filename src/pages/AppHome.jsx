@@ -4,16 +4,21 @@ import Game from "../Components/Game/index"
 import { useAsyncList } from "react-stately";
 import { useInView } from "react-intersection-observer";
 import SessionContext from "../context/SessionContext";
+import { useParams } from "react-router";
 
 
 
 
 export default function AppHome() {
+  const { ordering_id } = useParams();
+
 
   let games = useAsyncList({
     async load({ signal, cursor }) {
 
-      let res = await fetch(cursor || `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2023-05-01,2024-01-01&page=1`, {
+      let res = await fetch(
+        cursor || 
+        `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2023-05-01,2024-01-01&page=1&ordering=${ordering_id}`, {
         signal
       });
       let json = await res.json();
@@ -23,19 +28,23 @@ export default function AppHome() {
       };
     }
   });
-
+  
   const { ref, inView } = useInView({
     threshold: 0,
   });
 
-
+  
+  
+  
+  
   useEffect(() => {
     if (games.items.length && inView && !games.isLoading) {
       games.loadMore();
     }
   }, [inView, games]);
 
-
+  
+  
 
 
   return (
@@ -46,8 +55,9 @@ export default function AppHome() {
       </div>
       <div className="gamesWrapper">
         <div className="mb-3">
-          <h1> all your videogames in one place</h1>
-          {/* {loading && <progress />} */}
+          <h1>All your videogames in one place</h1>
+         
+          
         </div>
         <div className="gamesList">
           {games.items.map(game => (
