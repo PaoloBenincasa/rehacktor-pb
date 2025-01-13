@@ -12,7 +12,7 @@ import AppBrowse from "../Components/AppBrowse";
 
 export default function AppHome() {
   const { ordering_id } = useParams();
-  const [isBrowserVisible, setIsBrowserVisible] = useState(true);
+  const [isBrowserVisible, setIsBrowserVisible] = useState(false);
 
   const toggleBrowserVisibility = () => {
     setIsBrowserVisible(!isBrowserVisible);
@@ -61,10 +61,10 @@ export default function AppHome() {
       </div>
       <div className="gamesWrapper">
         <div className="mb-3">
-          <h2 className="underBlue">All your games. One place. Infinite adventures.</h2>
-          <p className="intro bg-blue p-2 rounded fs-5 mt-3">Welcome to <strong>ReHacktor</strong>, your go-to place for the world of video games. Explore a wide selection of titles, organize your experience by genre and platform, and easily find the game you're looking for and add it to your favourites. Whether you're a fan of action, adventure, strategy, or more, ReHacktor makes gaming even more fun, all in one place!</p>
+          <h1 className="underBlue">All your games. One place. Infinite adventures.</h1>
+          <p className="intro  bg-blue p-2 rounded fs-5 mt-3">Welcome to <strong>ReHacktor</strong>, your go-to place for the world of video games. Explore a wide selection of titles, organize your experience by genre and platform, and easily find the game you're looking for and add it to your favourites. Whether you're a fan of action, adventure, strategy, or more, ReHacktor makes gaming even more fun, all in one place!</p>
           <div className="gamesBrowser">
-            <button className="btn btn-outline-primary mb-1" onClick={toggleBrowserVisibility}>
+            <button className="btn btn-outline-primary text-light mb-1" onClick={toggleBrowserVisibility}>
               {isBrowserVisible ? "Hide browser" : "Browse by genre or platform"}
             </button>
             {isBrowserVisible && (

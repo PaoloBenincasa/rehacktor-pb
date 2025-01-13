@@ -33,7 +33,7 @@ const Screenshots = ({ gameId, gameName }) => {
                         <img
                             src={screenshot.image}
                             alt={`Screenshot ${screenshot.id}`}
-                            className="d-block w-100"
+                            className="d-block w-100  "
                             style={{ cursor: "pointer" }}
                             onClick={() => setSelectedScreenshot(screenshot.image)}
                         />

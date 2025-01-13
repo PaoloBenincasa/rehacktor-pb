@@ -76,56 +76,41 @@ export default function AppAccount() {
         setLoading(false)
     }
 
-    const handleAvatarChange = async (event) => {
-        const file = event.target.files[0];
-        const { data, error } = await supabase.storage
-          .from('avatars')
-          .upload(file, {
-            cacheControl: '3600',
-            upsert: true,
-          });
-        if (error) {
-          console.error(error);
-        } else {
-          setAvatarUrl(data.Key);
-          await supabase
-            .from('profiles')
-            .update({ avatar_url: data.Key })
-            .eq('id', auth.user().id);
-        }
-      };
+
+
+
 
     return (
 
 
-        <div className="container mb-2">
+        <div className="container mt-5 mb-2">
             <div className="row mt-3  align-items-center justify-content-center">
                 <div className="bg-newblack ">
-                    <h1 className="bg-newblack mt-2">Update profile</h1>
                     <form onSubmit={updateProfile} className="p-3 bg-newblack">
                         <div className='row bg-newblack'>
 
                             <div className=' col-md-6 '>
+                                <h1 className="bg-newblack mt-2">Update profile</h1>
                                 <div className='d-flex flex-column'>
 
                                     <Avatar
                                         url={avatar_url}
                                         size={150}
-
                                         onUpload={(event, url) => {
-                                            updateProfile(event, url)
+                                            updateProfile(event, url);
                                         }}
                                     />
+
                                 </div>
                             </div>
 
-                            <div className='col-md-6 mt-3 bg-newblack'>
+                            <div className='col-md-6 mt-3 bg-blackk rounded pt-4'>
 
-                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                <div className='mb-3 bg-newblack d-flex flex-column '>
                                     <label htmlFor="email" className='bg-newblack me-2 ms-1'>Email</label>
                                     <input id="email" type="text" value={session.user.email} disabled />
                                 </div>
-                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                <div className='mb-3 bg-newblack d-flex flex-column '>
                                     <label htmlFor="username" className='bg-newblack me-2 ms-1'>Name</label>
                                     <input
                                         id="username"
@@ -135,7 +120,7 @@ export default function AppAccount() {
                                         onChange={(e) => setUsername(e.target.value)}
                                     />
                                 </div>
-                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                <div className='mb-3 bg-newblack d-flex flex-column '>
                                     <label htmlFor="first_name" className='bg-newblack me-2 ms-1'>First name</label>
                                     <input
                                         id="first_name"
@@ -144,16 +129,17 @@ export default function AppAccount() {
                                         onChange={(e) => setFirst_name(e.target.value)}
                                     />
                                 </div>
-                                <div className='mb-3 bg-newblack d-flex flex-column'>
+                                <div className='mb-3 bg-newblack d-flex flex-column '>
                                     <label htmlFor="last_name" className='bg-newblack me-2 ms-1'>Last name</label>
                                     <input
                                         id="last_name"
                                         type="text"
                                         value={last_name || ''}
                                         onChange={(e) => setLast_name(e.target.value)}
+                                        
                                     />
                                 </div>
-                                <div className='d-flex justify-content-center p-1 m-2 gap-3 bg-newblack'>
+                                <div className='d-flex justify-content-center p-1 m-2 gap-3 bg-blackk'>
 
 
                                     <button className="btn btn-primary mb-3 rounded" type="submit" disabled={loading}>

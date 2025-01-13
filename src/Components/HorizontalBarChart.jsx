@@ -1,15 +1,18 @@
 import React, { useState } from 'react';
 
 const HorizontalBarChart = ({ ratings }) => {
-  const [hoveredSegment, setHoveredSegment] = useState(null);
-  const [hoveredLegend, setHoveredLegend] = useState(null);
-
+  
   const ratingColors = {
     exceptional: "#20a749", 
     recommended: "#0d6efd", 
     meh: "#ff9800",        
     skip: "#f44336",        
   };
+
+
+  
+  const [hoveredSegment, setHoveredSegment] = useState(null);
+  const [hoveredLegend, setHoveredLegend] = useState(null);
 
   const orderedRatings = ['exceptional', 'recommended', 'meh', 'skip'].map(title => {
     return ratings.find(rating => rating.title.toLowerCase() === title);
@@ -113,3 +116,9 @@ const lightenColor = (color) => {
 };
 
 export default HorizontalBarChart;
+
+
+
+
+
+

@@ -89,10 +89,9 @@ export default function AppPlatform() {
         }
     }
 
-    
     async function fetchPlatformGames(page = 1) {
         const platformId = platformMappings[platform_id]; 
-
+    
         try {
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&platforms=${platformId}&page=${page}`
@@ -108,8 +107,11 @@ export default function AppPlatform() {
             }
         } catch (error) {
             console.error("Error fetching games:", error);
+        } finally {
+            setIsLoading(false); 
         }
     }
+    
 
     useEffect(() => {
         fetchPlatformDetails();
