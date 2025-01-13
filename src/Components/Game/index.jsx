@@ -5,8 +5,8 @@ import style from "./styles.module.css"
 function Game({ game }) {
     const { background_image: image } = game;
     return (
-        <Link to={`/game/${game.id}`}  className="text-decoration-none ">
-            <div className={` ${style.gameCard}`}>
+        <Link to={`/game/${game.id}`}  className="text-decoration-none">
+            <div className={` ${style.gameCard} `} >
                 <GameImage image={image} className="position-relative" />
                 <div className={`${style.star}`}>
                     ✪ {game.rating}

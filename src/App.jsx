@@ -6,7 +6,9 @@ import GameContextProvider from "./Components/GameContext/GameContextProvider";
 
 function App() {
   return (
-    <RouterProvider router={router} />
+    <div className="vh-100">
+      <RouterProvider router={router} />
+    </div>
   )
 }
 

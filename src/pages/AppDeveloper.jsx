@@ -3,61 +3,10 @@ import { useParams } from "react-router";
 import { useInView } from "react-intersection-observer";
 import Game from "../Components/Game";
 
-const platformMappings = {
-    "pc": 4,
-    "playstation5": 187,
-    "playstation4": 18,
-    "xbox-one": 1,
-    "xbox360": 14,
-    "nintendo-switch": 7,
-    "nintendo-3ds": 8,
-    "nintendo-wii-u": 10,
-    "nintendo-wii": 11,
-    "ios": 3,
-    "android": 21,
-    "macos": 5,
-    "linux": 6,
-    "xbox-series-x": 186,
-    "playstation3": 16,
-    "playstation2": 15,
-    "playstation": 27,
-    "ps-vita": 19,
-    "psp": 17,
-    "wii": 11,
-    "gamecube": 105,
-    "nintendo-64": 83,
-    "game-boy-advance": 24,
-    "game-boy-color": 43,
-    "game-boy": 26,
-    "snes": 79,
-    "nes": 49,
-    "classic-macintosh": 55,
-    "apple-ii": 41,
-    "commodore-amiga": 166,
-    "atari-7800": 28,
-    "atari-5200": 31,
-    "atari-2600": 23,
-    "atari-flashback": 22,
-    "atari-8-bit": 25,
-    "atari-st": 34,
-    "atari-lynx": 46,
-    "atari-xegs": 50,
-    "genesis": 167,
-    "sega-saturn": 107,
-    "sega-cd": 119,
-    "sega-32x": 117,
-    "sega-master-system": 74,
-    "dreamcast": 106,
-    "3do": 111,
-    "jaguar": 112,
-    "game-gear": 77,
-    "neogeo": 12
-  };
-
-export default function AppPlatform() {
-    const { platform_id } = useParams();
+export default function AppDeveloper() {
+    const { developer_id } = useParams();
     const [games, setGames] = useState([]);
-    const [platformDetails, setPlatformDetails] = useState(null);
+    const [developerDetails, setDeveloperDetails] = useState(null);
     const [nextPage, setNextPage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -73,64 +22,64 @@ export default function AppPlatform() {
         return text.replace(/&#39;/g, "'");
     }
 
-   
-    async function fetchPlatformDetails() {
-        const platformId = platformMappings[platform_id]; 
-
+    async function fetchDeveloperDetails() {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}platforms/${platformId}?key=${import.meta.env.VITE_API_KEY}`
+                `${import.meta.env.VITE_API_BASE_URL}developers/${developer_id}?key=${import.meta.env.VITE_API_KEY}`
             );
             const json = await response.json();
-            json.description = stripHTML(json.description || ""); 
-            setPlatformDetails(json);
+            json.description = stripHTML(json.description || "");
+            setDeveloperDetails(json);
         } catch (error) {
-            console.error("Error fetching platform details:", error);
+            console.error("Error fetching developer details:", error);
         }
     }
 
-    
-    async function fetchPlatformGames(page = 1) {
-        const platformId = platformMappings[platform_id]; 
-
+    async function fetchDeveloperGames(page = 1) {
         try {
             const response = await fetch(
-                `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&platforms=${platformId}&page=${page}`
+                `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&developers=${developer_id}&page=${page}`
             );
             const json = await response.json();
-            
+    
             if (json.results && json.results.length > 0) {
-                setGames((prevGames) => [...prevGames, ...json.results]);
-                setNextPage(json.next); 
+                // Aggiungi solo i giochi che non sono già presenti
+                setGames((prevGames) => {
+                    const newGames = json.results.filter(
+                        (newGame) => !prevGames.some((game) => game.id === newGame.id)
+                    );
+                    return [...prevGames, ...newGames];
+                });
+                setNextPage(json.next);
             } else {
-                console.log("No games found for this platform.");
+                console.log("No games found for this developer.");
                 setGames([]);
             }
         } catch (error) {
             console.error("Error fetching games:", error);
         }
     }
+    
 
     useEffect(() => {
-        fetchPlatformDetails();
-        fetchPlatformGames(); 
-    }, [platform_id]);
+        fetchDeveloperDetails();
+        fetchDeveloperGames();
+    }, [developer_id]);
 
     useEffect(() => {
         if (inView && nextPage && !isLoading) {
             setIsLoading(true);
-            fetchPlatformGames(nextPage); 
+            fetchDeveloperGames(nextPage);
         }
     }, [inView, nextPage, isLoading]);
 
     return (
         <div className="mt-3">
-           
             <div
                 className="text-center mt-4 mb-3 d-flex flex-column align-items-center genreWrapper"
                 style={{
-                    backgroundImage: platformDetails?.image_background
-                        ? `url(${platformDetails.image_background})`
+                    backgroundImage: developerDetails?.image_background
+                        ? `url(${developerDetails.image_background})`
                         : "",
                     backgroundSize: "cover",
                     backgroundPosition: "center",
@@ -158,7 +107,7 @@ export default function AppPlatform() {
                         textDecorationColor: "var(--blue)",
                     }}
                 >
-                    Games for {platformDetails?.name || platform_id}
+                    Games by {developerDetails?.name || developer_id}
                 </h1>
                 <p
                     className="bgTransparent"
@@ -169,9 +118,9 @@ export default function AppPlatform() {
                         textDecorationColor: "var(--blue)",
                     }}
                 >
-                    {platformDetails?.games_count} games available for this platform
+                    {developerDetails?.games_count} games developed
                 </p>
-                {platformDetails && platformDetails.description && (
+                {developerDetails && developerDetails.description && (
                     <div
                         className="w-75 bgTransparent"
                         style={{
@@ -179,21 +128,21 @@ export default function AppPlatform() {
                             zIndex: 2,
                         }}
                     >
-                        <p className="platform-description bgTransparent">
-                            {decodeApostrophe(platformDetails.description)}
+                        <p className="developer-description bgTransparent">
+                            {decodeApostrophe(developerDetails.description)}
                         </p>
                     </div>
                 )}
             </div>
 
-            <div className="genreWrapper mt-4">
+            <div className="genreWrapper mt-4 pb-4">
                 <div className="gamesDeveloperList">
                     {games.length > 0 ? (
                         games.map((game, index) => (
                             <Game key={`${game.id}-${index}`} game={game} />
                         ))
                     ) : (
-                        <p>No games found for this platform.</p>
+                        <p>No games found for this developer.</p>
                     )}
                     <div ref={ref} aria-busy="true" className="loading"></div>
                 </div>

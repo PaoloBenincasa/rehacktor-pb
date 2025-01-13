@@ -11,6 +11,7 @@ import AppProfile from "../pages/AppProfile";
 import AppAccount from "../pages/AppAccount";
 import { useContext } from "react";
 import SessionContext from "../context/SessionContext";
+import AppDeveloper from "../pages/AppDeveloper";
 
 function ProtectedRoutes(params) {
     const session = useContext(SessionContext);
@@ -28,6 +29,8 @@ const router = createBrowserRouter(
             <Route path="/" element={<AppHome />} loader={preLoadedFilters} />
             <Route path="/games/:genre_slug" element={<AppGenre />} />
             <Route path="/platforms/:platform_id/" element={<AppPlatform />} />
+            <Route path="/developers/:developer_id/" element={<AppDeveloper />} />
+
             <Route path="/game/:id" element={<AppGame />} loader={fetchGame}/>
             <Route path="/signin" element={<AppSignIn />} />
             <Route path="/signup" element={<AppSignUp />} />

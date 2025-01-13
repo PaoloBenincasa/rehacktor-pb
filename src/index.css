@@ -24,18 +24,19 @@
 
 
 
+
 .body{
     background-color: var(--newblack);
 }
 
 .glass {
     /* From https://css.glass */
-    background: rgba(255, 255, 255, 0.81);
-    border-radius: 16px;
-    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    background: rgba(51, 49, 49, 0.2);
+    /* filter: blur(1px); */
+    /* box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); */
     backdrop-filter: blur(5.5px);
-    -webkit-backdrop-filter: blur(5.5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(2px);
+    /* border: 1px solid rgba(255, 255, 255, 0.2); */
 }
 
 .genreSide {
@@ -127,18 +128,7 @@ h1 {
 }
 
 
-.carousel-control-prev {
-    transform: translateY(50%);
-    height: 200px;
-    background-color: transparent !important;
-}
 
-.carousel-control-next {
-    transform: translateY(50%);
-    height: 200px;
-    background-color: transparent !important;
-
-}
 
 .button.btn-close {
     color: var(--newwhite) !important;
@@ -262,6 +252,12 @@ h1 {
     column-count: 5;
 
 
+}
+
+.gamesDeveloperList {
+   column-count: 5;
+   
+   
 }
 
 .screenList {
@@ -490,9 +486,32 @@ h1 {
     max-height: 100%;
 }
 
-.Toastify__toast--success {
+
+
+.dropdown-menu.show {
     background-color: var(--newblack);
-    color: var(--newwhite);
+    
+}
+
+.accordion-body{
+    background-color: var(--newblack);
+}
+
+.accordion-button{
+    background-color: var(--newblack) !important;
+    color: var(--newwhite) !important;
+}
+
+.accordion-item{
+    background-color: var(--newblack) !important;
+}
+
+.underBlue{
+    text-decoration: underline var(--blue);
+}
+
+.gamesBrowser{
+    display: none;
 }
 
 
@@ -501,10 +520,16 @@ h1 {
 
     .gamesList {
         column-count: 1;
-
+       
     }
 
+    .gamesDeveloperList{
+        column-count: 1;
+    }
 
+    .gamesBrowser{
+        display: block;
+    }
 
     .descTxt {
         text-align: center;
@@ -555,7 +580,7 @@ h1 {
 
     .gamesGenreList {
         column-count: 1;
-
+        display: block;
 
     }
 
@@ -563,5 +588,72 @@ h1 {
         column-count: 1;
     }
 
+    textarea{
+        width: 75%;
+    }
 
+    .intro{
+        display: none;
+    }
+
+}
+
+@media (max-width: 1047px) and (min-width: 480px) {
+    .gamesList{
+        column-count: 2;
+        
+    }
+
+    .gamesWrapper{
+        width: 100%;
+        
+    }
+
+    .gamesGenreList {
+        column-count: 2;
+
+
+    }
+
+    .gamesBrowser{
+        display: block;
+    }
+
+    .gamesDeveloperList{
+        column-count: 2;
+    }
+    
+   
+
+    textarea{
+        width: 75%;
+    }
+
+    .sidebar{
+        display: none;
+    }
+
+    .intro{
+        display: none;
+    }
+}
+
+@media (max-width: 863px){
+    
+
+    .gamesWrapper{
+        width: 100%;
+    }
+
+    .gamesBrowser{
+        display: block;
+    }
+
+    .logo{
+        display: none;
+    }
+
+    .intro{
+        display: none;
+    }
 }

@@ -65,11 +65,11 @@ export default function AppGame() {
             .eq("profile_id", session.user.id);
 
         if (error) {
-            toast.error('removing failed')
+            toast.error('Removing failed')
 
 
         } else {
-            toast.success('removed successfully')
+            toast.success('Removed successfully')
             readFav();
 
 
@@ -133,7 +133,8 @@ export default function AppGame() {
                     position: "relative",
                     height: "100%",
                     loading: "lazy"
-                }}>
+                }}
+            >
                 <div style={{
                     position: "absolute",
                     top: 0,
@@ -143,7 +144,6 @@ export default function AppGame() {
                     zIndex: 1,
                     backgroundColor: "rgba(0, 0, 0, 0.8)"
                 }}>
-
                 </div>
                 <div className="col-md-6 bgTransparent mt-4 mb-4 gameInfo"
                     style={{
@@ -195,13 +195,13 @@ export default function AppGame() {
                         position: "relative",
                         zIndex: 2
                     }}>
-                    <div className="imgDetail bgTransparent d-flex align-items-center p-1 animate__animated animate__fadeInRight" loading="lazy">
+                    <div className="imgDetail bgTransparent d-flex align-items-center  animate__animated animate__fadeInRight" loading="lazy">
 
                         <GameImage image={game.background_image} />
                     </div>
 
-                    <div className="container bgTransparent mt-4">
-                        <div className="row justify-content-between bgTransparent ">
+                    <div className="container  mt-4 mb-4">
+                        <div className="row  justify-content-between bgTransparent ">
                             <div className="col-md-6 bgTransparent" >
                                 <p className="txtGrey bgTransparent">genres</p>
                                 <p className="txtW bgTransparent">{game.genres.map((genre, index) => (
@@ -215,14 +215,33 @@ export default function AppGame() {
                             </div>
                             <div className="col-md-6 bgTransparent">
                                 <p className="txtGrey bgTransparent">developer</p>
-                                <p className="txtW bgTransparent">{game.developers.map((developer, index) => (
+                                {/* <p className="txtW bgTransparent">{game.developers.map((developer, index) => (
                                     <span key={developer.id} className="bgTransparent">
                                         {developer.name}{index < game.developers.length - 1 && ', '}
                                     </span>
-                                ))}</p>
+                                ))}</p> */}
+                                <p className="txtW bgTransparent">
+                                    {Array.isArray(game.developers) && game.developers.length > 0 ? (
+                                        game.developers.map((developer, index) => (
+                                            <span key={developer.id} className="bgTransparent">
+                                                <Link
+                                                    to={`/developers/${developer.id}`}
+                                                    className="text-decoration-none hovBlue bgTransparent"
+                                                >
+                                                    {developer.name}
+                                                </Link>
+                                                {index < game.developers.length - 1 && ', '}
+                                            </span>
+                                        ))
+                                    ) : (
+                                        <span className="bgTransparent">No developers found</span>
+                                    )}
+                                </p>
+
+
                             </div>
                         </div>
-                        <div className="row justify-content-between bgTransparent">
+                        <div className="row  justify-content-between bgTransparent">
                             <div className="col-md-6 bgTransparent">
                                 <p className="txtGrey bgTransparent">publisher</p>
                                 <p className="txtW bgTransparent">{game.publishers.map((publisher, index) => (
@@ -236,7 +255,7 @@ export default function AppGame() {
                                 <p className="txtW bgTransparent">
                                     {game.platforms.map((item, index) => (
                                         <span key={item.platform.id} className="bgTransparent">
-                                            <Link to={`/platforms/${item.platform.slug}` } className="text-decoration-none hovBlue bgTransparent">
+                                            <Link to={`/platforms/${item.platform.slug}`} className="text-decoration-none hovBlue bgTransparent">
 
                                                 {item.platform.name}
                                             </Link>
@@ -252,6 +271,8 @@ export default function AppGame() {
 
                 </div>
             </div>
+
+
 
             <div className="d-flex">
 

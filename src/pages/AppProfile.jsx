@@ -12,6 +12,7 @@ export default function AppProfile() {
   const [favourites, setFavourites] = useState([]);
   const [error, setError] = useState(null);
   const [session, setSession] = useState(null);
+  // const [avatar_url, setAvatarUrl] = useState(null);
   const numFavourites = favourites.length;
 
   useEffect(() => {
@@ -32,6 +33,21 @@ export default function AppProfile() {
 
     if (session?.user?.id) fetchProfile();
   }, [session]);
+
+  useEffect(() => {
+    const fetchAvatar = async () => {
+      const { data, error } = await supabase
+        .from('profiles')
+        .select('avatar_url')
+        .eq('id', auth.user().id);
+      if (error) {
+        console.error(error);
+      } else {
+        setAvatarUrl(data[0].avatar_url);
+      }
+    };
+    fetchAvatar();
+  }, []);
 
   useEffect(() => {
 
@@ -56,36 +72,72 @@ export default function AppProfile() {
   if (!profile) return <div>Loading profile...</div>;
 
   return (
+    // <div className="container p-5">
+    //   <article>
+    //     <header>
+    //       <h1>Hey {username}!</h1>
+    //     </header>
+    //     <div className="user_card">
+    //       <section className="user_data m-2">
+    //         <img
+    //           src={avatar_url && getAvatarUrl(avatar_url)}
+    //           alt="Profile"
+    //           className="h-50 w-50"
+    //         />
+    //         <p>you added {numFavourites} games to your favourites</p>
+    //       </section>
+
+    //       <div>
+    //         <h3>Your favourites</h3>
+    //         {favourites.length > 0 ? (
+    //           favourites.map((favourite) => (
+    //             <Link to={`/game/${favourite.game_id}`} key={favourite.game_id} className="text-decoration-none">
+    //               <p className="favList">{favourite.game_name} </p>
+
+    //             </Link>
+    //           ))
+    //         ) : (
+    //           <p>Non hai ancora preferiti.</p>
+    //         )}
+    //       </div>
+    //     </div>
+    //   </article>
+    // </div>
     <div className="container p-5">
-      <article>
-        <header>
+      <article className="d-flex flex-column align-items-center">
+        <header className="mb-4">
           <h1>Hey {username}!</h1>
         </header>
-        <div className="user_card">
-          <section className="user_data m-2">
-            <img
-              src={avatar_url && getAvatarUrl(avatar_url)}
-              alt="Profile"
-              className="h-50 w-50"
-            />
-            <p>you added {numFavourites} games to your favourites</p>
-          </section>
 
-          <div>
-            <h3>Your favourites</h3>
-            {favourites.length > 0 ? (
-              favourites.map((favourite) => (
-                <Link to={`/game/${favourite.game_id}`} key={favourite.game_id} className="text-decoration-none">
-                  <p className="favList">{favourite.game_name} </p>
-                  
-                </Link>
-              ))
-            ) : (
-              <p>Non hai ancora preferiti.</p>
-            )}
-          </div>
+        <section className="user_data d-flex align-items-center flex-column flex-md-row m-2">
+          <img
+            src={avatar_url && getAvatarUrl(avatar_url)}
+            alt="Profile"
+            className="h-50 w-50  mb-3 mb-md-0 me-md-3"
+          />
+          <p className="text-center text-md-start">
+            You added {numFavourites} games to your favourites.
+          </p>
+        </section>
+
+        <div className="mt-4">
+          <h3>Your favourites</h3>
+          {favourites.length > 0 ? (
+            favourites.map((favourite) => (
+              <Link
+                to={`/game/${favourite.game_id}`}
+                key={favourite.game_id}
+                className="text-decoration-none"
+              >
+                <p className="favList">{favourite.game_name}</p>
+              </Link>
+            ))
+          ) : (
+            <p>Non hai ancora preferiti.</p>
+          )}
         </div>
       </article>
     </div>
+
   );
 }

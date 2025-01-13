@@ -1,5 +1,3 @@
-
-
 import { Link } from "react-router";
 import { useState, useContext } from "react";
 import supabase from "../supabase/client";
@@ -43,9 +41,9 @@ export default function AppNavbar() {
     };
 
     return (
-       
+
         <>
-            
+
 
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid p-0">
@@ -83,6 +81,8 @@ export default function AppNavbar() {
                             </div>
                         </div>
 
+                    
+
 
                         <div className="col-md-2 col-2 text-md-end profile-section">
                             <div>
@@ -99,7 +99,7 @@ export default function AppNavbar() {
                                         </a>
                                         {/* {username} */}
                                         {/* <img src="./src/assets/person-badge.svg" alt="" style={{ width: "30px", height: "30px", backgroundColor: "blue",  borderRadius: "15px", objectFit: "cover" }} /> */}
-                                        <ul className="dropdown-menu drop">
+                                        <ul className="dropdown-menu drop dropdown-menu-end">
                                             <li className="account">
                                                 <Link to={'/profile'} className="account">Profile</Link>
                                             </li>
@@ -123,7 +123,7 @@ export default function AppNavbar() {
                                             <i className="bi bi-person-fill-x fs-3 "></i>
                                             {/* {username} */}
                                         </a>
-                                        <ul className="dropdown-menu drop">
+                                        <ul className="dropdown-menu drop dropdown-menu-end">
                                             <li className="account">
                                                 <Link to={'/signin'} className="account">Login</Link>
                                             </li>

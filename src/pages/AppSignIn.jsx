@@ -1,6 +1,8 @@
 import supabase from "../supabase/client";
-import { Toaster, toast } from "sonner";
+// import { Toaster, toast } from "sonner";
 import { useNavigate, Link } from "react-router";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function AppSignIn() {
@@ -30,7 +32,7 @@ function AppSignIn() {
     }
     return (
         <>
-          
+
             <div className="container">
                 <div className="row mt-5 align-items-center justify-content-center">
                     <div className="col-md-6 bg-newblack rounded shadow">
@@ -49,9 +51,20 @@ function AppSignIn() {
                             <p className="bg-newblack">Non hai ancora un account? <Link to={`/signup`} className="bg-newblack">registrati</Link> </p>
 
                         </form>
-                        <Toaster richColors />
+                        <ToastContainer position="bottom-right"
+                            autoClose={2000}
+                            hideProgressBar={false}
+                            newestOnTop={false}
+                            closeOnClick={true}
+                            rtl={false}
+                            pauseOnFocusLoss
+                            draggable
+                            pauseOnHover
+                            theme="light"
+
+                        />
                     </div>
-                    
+
                 </div>
             </div>
         </>

@@ -73,7 +73,8 @@
   padding: 2%;
   font-size: 1.1rem;
   overflow: hidden;
-  word-wrap: break-word;
+  /* word-wrap: break-word; */
+  text-wrap: pretty;
   /* text-overflow: ellipsis; */
   color: var(--newwhite);
   background-color: var(--newblack);
