@@ -67,11 +67,7 @@ export default function AppProfile() {
         .from('Favourites')
         .select('game_id, game_name')
         .eq('profile_id', session.user.id);
-
-      console.log("Session user ID:", session.user.id);
-      console.log("Fetched favourites:", data);
-
-
+        
       if (error) console.error("Error fetching favourites:", error);
       else setFavourites(data || []);
     };

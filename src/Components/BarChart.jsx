@@ -12,8 +12,6 @@ export default function BarChart({ ratings= [0] }) {
     })
     .filter(rating => rating.percent > 0);
 
-  console.log(ratings);
-
   return (
     <div className="chartContainer mb-4">
       {orderedRatings.map((rating) => {
@@ -21,7 +19,7 @@ export default function BarChart({ ratings= [0] }) {
         const color = ratingColors[rating?.title.toLowerCase()] || '#007bff';
 
         return (
-          <div className="d-flex flex-column">
+          <div className="d-flex flex-column" key={rating?.id}>
             <div className="d-flex">
               <p className="mb-1 mt-1"> <span style={{color: color}}>✪</span> {rating.title}: {Math.round(rating?.percent || 0)}%</p>
             </div>

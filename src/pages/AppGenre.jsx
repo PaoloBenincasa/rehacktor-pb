@@ -58,8 +58,6 @@ export default function AppGenre() {
         }
     }, [inView, nextPage, isLoading]);
 
-    console.log(genre_slug);
-
     return (
         <div className="mt-3">
             <div

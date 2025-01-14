@@ -46,13 +46,12 @@ export default function AppGame() {
 
         if (error) {
             toast.error('insert failed')
-            console.log(error.message);
+            console.warn(error.message);
 
         } else {
             toast.success('Added to favourites')
             readFav();
-            console.log(data);
-
+            
         }
     }
 
@@ -74,12 +73,6 @@ export default function AppGame() {
 
         }
     }
-
-
-
-
-    console.log(game);
-
 
     async function handleMessageSubmit(event) {
         event.preventDefault();
@@ -109,7 +102,6 @@ export default function AppGame() {
             } else {
                 toast.success("Comment posted!");
                 inputMessage.reset();
-                console.log("Response:", data);
             }
         } else {
             toast.error("Comment cannot be empty.");

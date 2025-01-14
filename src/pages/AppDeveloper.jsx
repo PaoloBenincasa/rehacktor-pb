@@ -52,7 +52,7 @@ export default function AppDeveloper() {
                 });
                 setNextPage(json.next);
             } else {
-                console.log("No games found for this developer.");
+                console.warn("No games found for this developer.");
                 setGames([]);
             }
         } catch (error) {
