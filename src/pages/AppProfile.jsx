@@ -86,52 +86,7 @@ export default function AppProfile() {
   if (!profile) return <div>Loading profile...</div>;
 
   return (
-
-    // <div className="container p-5">
-    //   <article className="d-flex flex-column align-items-center">
-    //     <header className="mb-4">
-    //       <h1>Hey {username}!</h1>
-    //     </header>
-
-    //     <section className="user_data text-center m-2">
-    //       <img
-    //         src={getAvatarUrl(avatar_url) || "https://picsum.photos/id/1/200/300"}
-    //         onError={(e) => {
-    //           e.target.src = "https://picsum.photos/id/1/200/300";
-    //         }}
-    //         alt="Profile"
-    //         className=" mb-3 mb-md-0 me-md-3 proPic"
-    //       />
-
-
-
-    //     </section>
-
-    //     <div className="mt-4">
-    //       <p className="text-center ">
-    //         You added {numFavourites} games to your favourites.
-    //       </p>
-    //       <h3>Your favourites</h3>
-    //       {favourites.length > 0 ? (
-    //         favourites.map((favourite) => (
-    //           <Link
-    //             to={`/game/${favourite.game_id}`}
-    //             key={favourite.game_id}
-    //             className="text-decoration-none"
-    //           >
-    //             <p className="favList">{favourite.game_name}</p>
-    //           </Link>
-    //         ))
-    //       ) : (
-    //         <p>Non hai ancora preferiti.</p>
-    //       )}
-    //     </div>
-    //   </article>
-
-
-    // </div>
-
-    <div className="container mb-5 mt-5 bg-newblack">
+    <div className="container mb-5 mt-5 bg-newblack rounded">
       <div className="row p-3 ">
         <div className="col-md-6 p-5 d-flex flex-column align-items-center">
           <h1 className="underBlue">Hey {username}!</h1>
@@ -143,15 +98,15 @@ export default function AppProfile() {
             alt="Profile"
             className=" mb-3 mb-md-0 me-md-3 proPic"
           />
-          <p className="mt-4">
+          <p className="mt-4 ps-3">
             You added {numFavourites} games to your favourites.
           </p>
         </div>
 
         <div className="col-md-6 p-2">
-          <div className="bg-blackk rounded p-3">
+          <div className="bg-blackk rounded p-3 ps-5">
 
-            <h3 className="underBlue">Your favourites</h3>
+            <h3 className="underBlue pt-4">Your favourites</h3>
             {favourites.length > 0 ? (
               favourites.map((favourite) => (
                 <Link

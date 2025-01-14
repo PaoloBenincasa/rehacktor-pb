@@ -9,6 +9,7 @@ import HorizontalBarChart from "../Components/HorizontalBarChart";
 import Screenshots from "../Components/Game/components/Screenshots";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BarChart from "../Components/BarChart";
 
 
 
@@ -180,7 +181,9 @@ export default function AppGame() {
                         </div>
                         {game.ratings && game.ratings.length > 0 && (
                             <div className="ratingsContainer bgTransparent w-100 " >
-                                <HorizontalBarChart ratings={game.ratings} />
+                                {/* <HorizontalBarChart ratings={game.ratings} /> */}
+                                <BarChart ratings={game.ratings} />
+
                             </div>
                         )}
                     </div>

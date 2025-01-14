@@ -81,7 +81,7 @@ export default function AppNavbar() {
                             </div>
                         </div>
 
-                    
+
 
 
                         <div className="col-md-2 col-2 text-md-end profile-section">
@@ -141,6 +141,8 @@ export default function AppNavbar() {
                 </div>
             </nav>
         </>
+
+      
     );
 
 }
