@@ -22,8 +22,6 @@ export default function AppGenre() {
         return text.replace(/&#39;/g, "'");
     }
 
-
-
     async function fetchGenreDetails() {
         const response = await fetch(
             `${import.meta.env.VITE_API_BASE_URL}genres/${genre_slug}?key=${import.meta.env.VITE_API_KEY}`
@@ -113,16 +111,13 @@ export default function AppGenre() {
             </div>
 
             <div className="genreWrapper mt-4">
-
                 <div className="gamesGenreList">
                     {genreGames.map((game, index) => (
                         <Game key={`${game.id}-${index}`} game={game} />
                     ))}
                     <div ref={ref} aria-busy="true" className="loading"></div>
                 </div>
-
             </div>
-
         </div>
     )
 }

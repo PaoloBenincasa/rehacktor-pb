@@ -4,8 +4,7 @@ import SessionContext from "./SessionContext"
 
 export default function SessionContextProvider({children}) {
     const [session, setSession] = useState(null);
-    // const [user, setUser] = useState(null);
-  
+ 
     useEffect(() => {
       const {data: { subscription }} =  supabase.auth.onAuthStateChange(
         (event, session) => {
@@ -16,13 +15,6 @@ export default function SessionContextProvider({children}) {
           }
         })
 
-        // const { data: { user } } =  supabase.auth.getUser()
-        // if (!user) {
-        //     setUser(null)
-        //   } else if (session) {
-        //     setUser(user)
-        //   }
-  
       return () => {
         subscription.unsubscribe()
       }

@@ -43,8 +43,6 @@ export default function AppNavbar() {
     return (
 
         <>
-
-
             <nav className="navbar navbar-expand-lg ">
                 <div className="container-fluid p-0">
                     <div className="row w-100 align-items-center justify-content-between">
@@ -55,7 +53,6 @@ export default function AppNavbar() {
                                 <p className="mt-3 txtW chakra ps-2 logo">ReHacktor</p>
                             </div>
                         </Link>
-
 
                         <div className="col-md-8 col-7 search-bar ps-5">
                             <div className="navSearchContainer position-relative">
@@ -81,9 +78,6 @@ export default function AppNavbar() {
                             </div>
                         </div>
 
-
-
-
                         <div className="col-md-2 col-2 text-md-end profile-section">
                             <div>
                                 {session ? (
@@ -97,8 +91,7 @@ export default function AppNavbar() {
                                         >
                                             <i class="bi bi-person-fill-check fs-3 "></i>
                                         </a>
-                                        {/* {username} */}
-                                        {/* <img src="./src/assets/person-badge.svg" alt="" style={{ width: "30px", height: "30px", backgroundColor: "blue",  borderRadius: "15px", objectFit: "cover" }} /> */}
+
                                         <ul className="dropdown-menu drop dropdown-menu-end">
                                             <li className="account">
                                                 <Link to={'/profile'} className="account">Profile</Link>
@@ -121,7 +114,6 @@ export default function AppNavbar() {
                                             aria-expanded="false"
                                         >
                                             <i className="bi bi-person-fill-x fs-3 "></i>
-                                            {/* {username} */}
                                         </a>
                                         <ul className="dropdown-menu drop dropdown-menu-end">
                                             <li className="account">
@@ -142,7 +134,7 @@ export default function AppNavbar() {
             </nav>
         </>
 
-      
+
     );
 
 }

@@ -2,39 +2,19 @@
   --newwhite: #fafffd;
   --newblack: #252829;
   --black: #151515;
-  --newgreen: #00896a;
   --blue: #156794;
-
-  /* background-color: var(--newblack); */
-
 }
-/* 
-.expose {
-  animation: expose 1s !important;
-}
-
-@keyframes expose {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-} */
 
 .gameImageContainer {
   position: relative; 
   height: 100%; 
 }
 
-
 .gameCard{
     background-color: var(--newblack);
     border-radius: 2%;
     margin-bottom: 7%;
     height: 240px;
-    /* width: 320px; */
     text-decoration: none !important;
     color: var(--newwhite);
     transition: 0.4s;
@@ -42,10 +22,8 @@
     overflow: hidden;
 }
 
-
 .gameCard:hover  {
   transform: scale(1.1);
-  /* transition: 0.2s; */
   z-index: 2;
   background-color: var(--newwhite);
 }
@@ -74,9 +52,7 @@
   padding: 2%;
   font-size: 1.1rem;
   overflow: hidden;
-  /* word-wrap: break-word; */
   text-wrap: pretty;
-  /* text-overflow: ellipsis; */
   color: var(--newwhite);
   background-color: var(--newblack);
   transition: 0.4s;
@@ -89,16 +65,5 @@
   text-decoration: #156794 underline;
 }
 
-/* .cardTitle{
-  color: var(--newwhite);
-  font-size: 1.2rem;
-  padding-left: 2%;
-  padding-top: 2%;
-  text-decoration: none !important;
-  text-align: start;
-} */
 
-/* .gameCard:hover h4 {
-  color: #0F90BA;
-} */
 

@@ -41,7 +41,7 @@ export default function AppDeveloper() {
                 `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&developers=${developer_id}&page=${page}`
             );
             const json = await response.json();
-    
+
             if (json.results && json.results.length > 0) {
                 // Aggiungi solo i giochi che non sono già presenti
                 setGames((prevGames) => {
@@ -59,7 +59,6 @@ export default function AppDeveloper() {
             console.error("Error fetching games:", error);
         }
     }
-    
 
     useEffect(() => {
         fetchDeveloperDetails();

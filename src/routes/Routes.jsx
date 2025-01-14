@@ -6,7 +6,7 @@ import AppGenre from "../pages/AppGenre";
 import AppPlatform from "../pages/AppPlatform"
 import AppGame from "../pages/AppGame";
 import AppSignUp from "../pages/AppSignUp";
-import AppSignIn from "../pages/AppSignin";
+import AppSignIn from "../pages/AppSignIn";
 import AppProfile from "../pages/AppProfile";
 import AppAccount from "../pages/AppAccount";
 import { useContext } from "react";
@@ -30,7 +30,6 @@ const router = createBrowserRouter(
             <Route path="/games/:genre_slug" element={<AppGenre />} />
             <Route path="/platforms/:platform_id/" element={<AppPlatform />} />
             <Route path="/developers/:developer_id/" element={<AppDeveloper />} />
-
             <Route path="/game/:id" element={<AppGame />} loader={fetchGame}/>
             <Route path="/signin" element={<AppSignIn />} />
             <Route path="/signup" element={<AppSignUp />} />
@@ -39,11 +38,7 @@ const router = createBrowserRouter(
                 <Route path="/profile" element={<AppProfile />} />
                 <Route path="/account" element={<AppAccount />} />
             </Route>
-
-
-
         </Route>
-
     )
 );
 

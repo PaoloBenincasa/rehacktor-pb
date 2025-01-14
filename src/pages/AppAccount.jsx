@@ -1,13 +1,9 @@
 import { useEffect, useContext, useState } from 'react'
 import supabase from '../supabase/client'
 import SessionContext from '../context/SessionContext'
-// import { Toaster, toast } from 'sonner'
-// import useProfile from '../hooks/useProfile'
 import Avatar from '../Components/AvatarUI'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-
 
 export default function AppAccount() {
     const session = useContext(SessionContext)
@@ -76,23 +72,15 @@ export default function AppAccount() {
         setLoading(false)
     }
 
-
-
-
-
     return (
-
-
         <div className="container mt-5 mb-2">
             <div className="row mt-3  align-items-center justify-content-center">
                 <div className="bg-newblack ">
                     <form onSubmit={updateProfile} className="p-3 bg-newblack">
                         <div className='row bg-newblack'>
-
                             <div className=' col-md-6 '>
                                 <h1 className="bg-newblack mt-2">Update profile</h1>
                                 <div className='d-flex flex-column'>
-
                                     <Avatar
                                         url={avatar_url}
                                         size={150}
@@ -100,12 +88,10 @@ export default function AppAccount() {
                                             updateProfile(event, url);
                                         }}
                                     />
-
                                 </div>
                             </div>
 
                             <div className='col-md-6 mt-3 bg-blackk rounded pt-4'>
-
                                 <div className='mb-3 bg-newblack d-flex flex-column '>
                                     <label htmlFor="email" className='bg-newblack me-2 ms-1'>Email</label>
                                     <input id="email" type="text" value={session.user.email} disabled />
@@ -140,14 +126,9 @@ export default function AppAccount() {
                                     />
                                 </div>
                                 <div className='d-flex justify-content-center p-1 m-2 gap-3 bg-blackk'>
-
-
                                     <button className="btn btn-primary mb-3 rounded" type="submit" disabled={loading}>
                                         {loading ? 'Loading ...' : 'Update'}
                                     </button>
-
-
-
                                     <button className="btn btn-danger mb-3 rounded" type="button" onClick={() => supabase.auth.signOut()}>
                                         Sign Out
                                     </button>
@@ -163,7 +144,6 @@ export default function AppAccount() {
                                     draggable
                                     pauseOnHover
                                     theme="light"
-
                                 />
                             </div>
                         </div>

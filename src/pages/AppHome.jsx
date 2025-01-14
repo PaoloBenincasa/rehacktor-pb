@@ -1,14 +1,10 @@
-import { useContext, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 import AppAside from "../Components/AppAside"
 import Game from "../Components/Game/index"
 import { useAsyncList } from "react-stately";
 import { useInView } from "react-intersection-observer";
-import SessionContext from "../context/SessionContext";
 import { useParams } from "react-router";
 import AppBrowse from "../Components/AppBrowse";
-
-
-
 
 export default function AppHome() {
   const { ordering_id } = useParams();
@@ -18,10 +14,8 @@ export default function AppHome() {
     setIsBrowserVisible(!isBrowserVisible);
   };
 
-
   let games = useAsyncList({
     async load({ signal, cursor }) {
-
       let res = await fetch(
         cursor ||
         `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&dates=2023-05-01,2024-01-01&page=1&ordering=${ordering_id}`, {
@@ -39,25 +33,16 @@ export default function AppHome() {
     threshold: 0,
   });
 
-
-
-
-
   useEffect(() => {
     if (games.items.length && inView && !games.isLoading) {
       games.loadMore();
     }
   }, [inView, games]);
 
-
-
-
-
   return (
     <div className="container-fluid d-flex homeWrap">
       <div className="sidebar">
         <AppAside />
-
       </div>
       <div className="gamesWrapper">
         <div className="mb-3">
@@ -73,19 +58,14 @@ export default function AppHome() {
               </div>
             )}
           </div>
-
         </div>
         <div className="gamesList mt-4">
           {games.items.map(game => (
             <Game key={game.id} game={game} />
-
           ))}
-
           <div ref={ref} aria-busy="true" className="loading"></div>
         </div>
       </div>
-
     </div>
-
   )
 }

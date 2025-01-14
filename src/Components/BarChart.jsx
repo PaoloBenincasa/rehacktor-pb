@@ -6,7 +6,6 @@ export default function BarChart({ ratings= [0] }) {
     skip: "#f44336",
   };
 
- 
   const orderedRatings = ['exceptional', 'recommended', 'meh', 'skip']
     .map(title => {
       return ratings.find(rating => rating.title?.toLowerCase() === title) || { title, percent: 0 };
@@ -29,11 +28,12 @@ export default function BarChart({ ratings= [0] }) {
             <div
               key={rating?.id}
               style={{
-                height: '28px',
-                marginTop: '2px',
+                height: '26px',
                 width: `${width}%`,
                 backgroundColor: color,
                 position: 'relative',
+                borderEndEndRadius: '8px',
+                borderStartEndRadius: '8px',
               }}
             >
             </div>

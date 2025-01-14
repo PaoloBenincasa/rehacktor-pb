@@ -3,9 +3,7 @@ import { useLoaderData, Link } from "react-router";
 import GameImage from "../Components/Game/components/GameImage";
 import SessionContext from "../context/SessionContext";
 import supabase from "../supabase/client";
-// import { Toaster, toast } from "sonner";
 import ChatUI from "../Components/ChatUI";
-import HorizontalBarChart from "../Components/HorizontalBarChart";
 import Screenshots from "../Components/Game/components/Screenshots";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -181,17 +179,11 @@ export default function AppGame() {
                         </div>
                         {game.ratings && game.ratings.length > 0 && (
                             <div className="ratingsContainer bgTransparent w-100 " >
-                                {/* <HorizontalBarChart ratings={game.ratings} /> */}
                                 <BarChart ratings={game.ratings} />
 
                             </div>
                         )}
                     </div>
-
-
-
-
-
                 </div>
                 <div className="col-md-5 d-flex flex-column bgTransparent mt-4 "
                     style={{
@@ -218,11 +210,6 @@ export default function AppGame() {
                             </div>
                             <div className="col-md-6 bgTransparent">
                                 <p className="txtGrey bgTransparent">developer</p>
-                                {/* <p className="txtW bgTransparent">{game.developers.map((developer, index) => (
-                                    <span key={developer.id} className="bgTransparent">
-                                        {developer.name}{index < game.developers.length - 1 && ', '}
-                                    </span>
-                                ))}</p> */}
                                 <p className="txtW bgTransparent">
                                     {Array.isArray(game.developers) && game.developers.length > 0 ? (
                                         game.developers.map((developer, index) => (
@@ -259,7 +246,6 @@ export default function AppGame() {
                                     {game.platforms.map((item, index) => (
                                         <span key={item.platform.id} className="bgTransparent">
                                             <Link to={`/platforms/${item.platform.slug}`} className="text-decoration-none hovBlue bgTransparent">
-
                                                 {item.platform.name}
                                             </Link>
                                             {index < game.platforms.length - 1 && ', '}
@@ -270,12 +256,8 @@ export default function AppGame() {
                             </div>
                         </div>
                     </div>
-
-
                 </div>
             </div>
-
-
 
             <div className="d-flex">
 
@@ -285,7 +267,6 @@ export default function AppGame() {
                 </div>
             </div>
 
-
             <div>
 
                 <h5 className="txtGrey descTxt p-1 w-100">Screenshots</h5>
@@ -293,8 +274,6 @@ export default function AppGame() {
             <div className="screenList" loading="lazy">
                 <Screenshots gameId={game.id} gameName={game.name} />
             </div>
-
-
 
             <div className="mt-5 mb-5 d-flex flex-column align-items-center">
                 <h5 className="txtGrey mb-0 ">Comments</h5>
@@ -308,9 +287,6 @@ export default function AppGame() {
                             <input type="submit" value="Publish" className="btn btn-primary mt-5 w-25 " />
                         </fieldset>
                     </form>
-                    {/* <Toaster richColors /> */}
-
-
                 </div>
                 <ToastContainer position="bottom-right"
                     autoClose={2000}
@@ -322,13 +298,8 @@ export default function AppGame() {
                     draggable
                     pauseOnHover
                     theme="light"
-
                 />
             </div>
-
-
-
-
         </div>
     )
 }

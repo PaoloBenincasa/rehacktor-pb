@@ -4,12 +4,9 @@ import { getAvatarUrl } from "../utils/getAvatarUrl";
 import { Link } from "react-router";
 import supabase from '../supabase/client';
 import { getSession } from "../hooks/useSession";
-import Avatar from '../Components/AvatarUI'
-
-import Game from "../Components/Game";
 
 export default function AppProfile() {
-  const { first_name, last_name, username } = useProfile();
+  const {username } = useProfile();
   const [profile, setProfile] = useState(null);
   const [favourites, setFavourites] = useState([]);
   const [error, setError] = useState(null);
@@ -105,7 +102,6 @@ export default function AppProfile() {
 
         <div className="col-md-6 p-2">
           <div className="bg-blackk rounded p-3 ps-5">
-
             <h3 className="underBlue pt-4">Your favourites</h3>
             {favourites.length > 0 ? (
               favourites.map((favourite) => (
@@ -118,7 +114,7 @@ export default function AppProfile() {
                 </Link>
               ))
             ) : (
-              <p>Non hai ancora preferiti.</p>
+              <p>You have no favourites yet.</p>
             )}
           </div>
         </div>

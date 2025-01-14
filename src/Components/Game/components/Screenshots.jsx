@@ -1,12 +1,10 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
 
 const Screenshots = ({ gameId, gameName }) => {
     const [screenshots, setScreenshots] = useState([]);
     const [loading, setLoading] = useState(true);
     const [selectedScreenshot, setSelectedScreenshot] = useState(null);
 
-   
     useEffect(() => {
         const fetchScreenshots = async () => {
             try {

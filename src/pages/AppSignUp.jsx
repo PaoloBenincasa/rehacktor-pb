@@ -1,5 +1,4 @@
 import supabase from "../supabase/client";
-// import { Toaster, toast } from 'sonner';
 import { useNavigate, Link } from "react-router";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -40,8 +39,6 @@ function AppSignUp() {
     };
     return (
         <>
-
-
             <div className="container">
                 <div className="row mt-2 mb-2 align-items-center justify-content-center">
                     <div className="col-md-6 bg-newblack rounded shadow">
@@ -82,13 +79,10 @@ function AppSignUp() {
                             draggable
                             pauseOnHover
                             theme="light"
-
                         />
                     </div>
-
                 </div>
             </div>
-
         </>
     )
 }

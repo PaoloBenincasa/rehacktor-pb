@@ -5,8 +5,6 @@ export default function AppAside() {
 
     return (
         <aside>
-
-         
             <div className="accordion accordion-flush" id="accordionFlushExample">
                 <div className="accordion-item">
                     <h5 className="bg-newblack txtW ps-3 pt-3 underBlue">Browse by:</h5>
@@ -39,7 +37,8 @@ export default function AppAside() {
                                     <img src={platform.image_background} alt="" className="genrePic me-2" />
                                     <Link className="genreLink mt-1 mb-2" to={`/platforms/${platform.slug}`}>{platform.name}</Link>
                                 </li>
-                            ))}                            </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
 

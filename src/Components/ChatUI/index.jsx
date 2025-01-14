@@ -2,10 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import supabase from "../../supabase/client";
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime'
-import style from './'
-
-
-
 
 function ChatUI({ game }) {
     const [messages, setMessages] = useState([]);
@@ -16,9 +12,7 @@ function ChatUI({ game }) {
 
     function scrollSmoothToTop() {
         if (messageRef.current) {
-            // messageRef.current.scrollTop = messageRef.current.scrollHeight;
             messageRef.current.scrollTop = 0;
-
         }
     };
 
@@ -64,10 +58,6 @@ function ChatUI({ game }) {
     useEffect(() => {
         scrollSmoothToTop();
     }, [messages]);
-
-    // if(loadingInitial){
-    //     return <progress></progress>;
-    // }
 
     return (
         <div ref={messageRef} >

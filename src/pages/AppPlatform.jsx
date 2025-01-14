@@ -73,10 +73,8 @@ export default function AppPlatform() {
         return text.replace(/&#39;/g, "'");
     }
 
-   
     async function fetchPlatformDetails() {
         const platformId = platformMappings[platform_id]; 
-
         try {
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}platforms/${platformId}?key=${import.meta.env.VITE_API_KEY}`
@@ -91,7 +89,6 @@ export default function AppPlatform() {
 
     async function fetchPlatformGames(page = 1) {
         const platformId = platformMappings[platform_id]; 
-    
         try {
             const response = await fetch(
                 `${import.meta.env.VITE_API_BASE_URL}games?key=${import.meta.env.VITE_API_KEY}&platforms=${platformId}&page=${page}`

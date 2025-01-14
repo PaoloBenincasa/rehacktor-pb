@@ -3,10 +3,7 @@ import "react-lazy-load-image-component/src/effects/opacity.css";
 
 export default function GameImage({ image }) {
     return (
-       
-
             <LazyLoadImage
-
                 alt="game image"
                 effect="opacity"
                 wrapperProps={{
@@ -21,8 +18,5 @@ export default function GameImage({ image }) {
                 src={image}
                 loading="lazy"
             />
-        
-
-
     )
 }
