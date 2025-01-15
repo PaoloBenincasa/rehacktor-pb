@@ -1,7 +1,7 @@
 import { RouterProvider } from "react-router";
 import router from "./routes/Routes";
 import SessionContextProvider from "./context/SessionContextProvider";
-import FavContextProvider from "./Components/favContext/favContextProvider";
+import FavContextProvider from "./Components/FavContext/FavContextProvider";
 import GameContextProvider from "./Components/GameContext/GameContextProvider";
 
 function App() {
