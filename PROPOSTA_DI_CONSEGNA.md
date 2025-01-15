@@ -40,4 +40,4 @@ Utente autenticato:
 3. FavContext: per passare i dati dei giochi preferiti alla pagina AppProfile.
 
 **Deployment**
-https://rehacktor-paolo-benincasa84.vercel.app/
+https://rehacktor-paolo-benincasa.vercel.app/
