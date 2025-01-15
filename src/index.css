@@ -342,6 +342,7 @@ h1 {
     z-index: 1000;
     border-radius: 5px;
     padding: 5px 0;
+    
 }
 
 .autocomplete-item {
@@ -565,6 +566,25 @@ h1 {
         width: 50%;
     }
 
+    
+
+}
+
+@media (max-width: 720px) {
+    .autocomplete-container {
+        position: absolute;
+        top: 100%;
+        left: -23%;
+        right: 0;
+        max-height: 300px;
+        overflow-y: auto;
+        background: #2c2c2c;
+        border: 1px solid #ccc;
+        z-index: 1000;
+        border-radius: 5px;
+        padding: 5px 0;
+        width: 150%;
+    }
 }
 
 @media (max-width: 1047px) and (min-width: 480px) {
