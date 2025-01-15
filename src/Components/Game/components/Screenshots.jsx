@@ -46,6 +46,7 @@ const Screenshots = ({ gameId, gameName }) => {
                             src={selectedScreenshot}
                             alt="Selected Screenshot"
                             className="d-block w-100"
+                           
                         />
                     </div>
                 </div>
