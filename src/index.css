@@ -17,8 +17,9 @@
     font-family: "Chakra Petch", sans-serif;
 }
 
-.body{
-    background-color: var(--newblack);  
+.body {
+    background-color: var(--newblack);
+
 }
 
 .genreSide {
@@ -140,7 +141,7 @@ h1 {
     height: 50px;
     border-radius: 30px;
     padding-left: 35px;
-    
+
 }
 
 .navSearch {
@@ -167,6 +168,7 @@ h1 {
 
 .hovBlue:hover {
     color: var(--blue);
+    cursor: pointer;
 }
 
 .li {
@@ -194,7 +196,7 @@ h1 {
 }
 
 .gamesDeveloperList {
-   column-count: 5;
+    column-count: 5;
 }
 
 .screenList {
@@ -394,40 +396,76 @@ h1 {
 
 .dropdown-menu.show {
     background-color: var(--newblack);
-    
+
 }
 
-.accordion-body{
+.accordion-body {
     background-color: var(--newblack);
 }
 
-.accordion-button{
+.accordion-button {
     background-color: var(--newblack) !important;
     color: var(--newwhite) !important;
 }
 
-.accordion-item{
+.accordion-item {
     background-color: var(--newblack) !important;
 }
 
-.underBlue{
+.underBlue {
     text-decoration: underline var(--blue);
 }
 
-.gamesBrowser{
+.gamesBrowser {
     display: none;
 }
 
-.proPic{
+.proPic {
     width: 250px;
     height: 250px;
 }
+
+#scroller {
+    position: fixed;
+    width: 100%;
+    height: 89px;
+    top: 0;
+    right: 0;
+    background-color: var(--newblack), 0.4;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+    color: var(--newwhite);
+    padding: 10px 20px;
+    display: none;
+    z-index: 5;
+    /* box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); */
+    overflow-x: hidden;
+}
+
+.imgScroller {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    object-fit: cover;
+
+}
+
+.scrollerContent {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    /* width: 100%; */
+    height: 100%;
+    /* overflow-x: hidden; */
+}
+
+
 
 @media (max-width: 480px) {
 
     .gamesList {
         column-count: 1;
-       
+
     }
 
     .modal-content {
@@ -435,16 +473,17 @@ h1 {
         max-height: 100%;
     }
 
-    .gamesDeveloperList{
+    .gamesDeveloperList {
         column-count: 1;
     }
 
-    .gamesBrowser{
+    .gamesBrowser {
         display: block;
     }
 
     .descTxt {
         text-align: center;
+        overflow-x: hidden;
     }
 
     aside,
@@ -496,25 +535,46 @@ h1 {
         column-count: 1;
     }
 
-    textarea{
+    textarea {
         width: 75%;
     }
 
-    .intro{
+    .intro {
         display: none;
+    }
+
+
+
+}
+
+@media (max-width: 620px) {
+    .imgScroller {
+        display: none;
+    }
+
+    .ratingScroller {
+        display: none;
+    }
+
+    .titleScroller {
+        display: none;
+    }
+
+    .scroller{
+        width: 50%;
     }
 
 }
 
 @media (max-width: 1047px) and (min-width: 480px) {
-    .gamesList{
+    .gamesList {
         column-count: 2;
-        
+
     }
 
-    .gamesWrapper{
+    .gamesWrapper {
         width: 100%;
-        
+
     }
 
     .gamesGenreList {
@@ -523,33 +583,33 @@ h1 {
 
     }
 
-    .gamesBrowser{
+    .gamesBrowser {
         display: block;
     }
 
-    .gamesDeveloperList{
+    .gamesDeveloperList {
         column-count: 2;
     }
-    
-   
 
-    textarea{
+
+
+    textarea {
         width: 75%;
     }
 
-    .sidebar{
+    .sidebar {
         display: none;
     }
 
-    .intro{
+    .intro {
         display: none;
     }
 }
 
-@media (max-width: 560px){
+@media (max-width: 560px) {
     .gamesList {
         column-count: 1;
-       
+
     }
 
     .gamesGenreList {
@@ -558,28 +618,28 @@ h1 {
 
     }
 
-    .gamesDeveloperList{
+    .gamesDeveloperList {
         column-count: 1;
     }
 }
 
 
-@media (max-width: 863px){
-    
+@media (max-width: 863px) {
 
-    .gamesWrapper{
+
+    .gamesWrapper {
         width: 100%;
     }
 
-    .gamesBrowser{
+    .gamesBrowser {
         display: block;
     }
 
-    .logo{
+    .logo {
         display: none;
     }
 
-    .intro{
+    .intro {
         display: none;
     }
 }

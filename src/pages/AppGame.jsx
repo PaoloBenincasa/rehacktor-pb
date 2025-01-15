@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useLoaderData, Link } from "react-router";
 import GameImage from "../Components/Game/components/GameImage";
 import SessionContext from "../context/SessionContext";
@@ -15,6 +15,50 @@ export default function AppGame() {
     const session = useContext(SessionContext);
     const game = useLoaderData();
     const [fav, setFav] = useState([]);
+    const aboutRef = useRef(null);
+    const screenshotsRef = useRef(null);
+    const commentsRef = useRef(null);
+
+    const scrollToAbout = () => {
+        if (aboutRef.current) {
+            const offset = 89;
+            const elementPosition = aboutRef.current.offsetTop;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    };
+
+    const scrollToScreenshots = () => {
+        if (screenshotsRef.current) {
+            const offset = 89;
+            const elementPosition = screenshotsRef.current.offsetTop;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    };
+
+    const scrollToComments = () => {
+        if (commentsRef.current) {
+            const offset = 89;
+            const elementPosition = commentsRef.current.offsetTop;
+            const offsetPosition = elementPosition - offset;
+
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            })
+        }
+    };
+
+
 
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -51,7 +95,7 @@ export default function AppGame() {
         } else {
             toast.success('Added to favourites')
             readFav();
-            
+
         }
     }
 
@@ -112,9 +156,52 @@ export default function AppGame() {
         if (session) readFav();
     }, [])
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const scroller = document.getElementById("scroller");
+            const scrollThreshold = 78;
+
+            if (window.scrollY > scrollThreshold) {
+                scroller.style.display = "block";
+            } else {
+                scroller.style.display = "none";
+            }
+        };
+
+        document.addEventListener("scroll", handleScroll);
+
+        return () => document.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
 
         <div className="container mt-3" >
+            <div id="scroller" className="animate__animated animate__fadeInDown ">
+                <div className="scrollerContent">
+                    <i
+                        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                        className="bi bi-arrow-up-circle fs-2 hovBlue"
+
+                    ></i>
+                    <img src={game.background_image} alt="" className="imgScroller" />
+                    <div>
+
+                        <h3 className="mb-0 titleScroller">{game.name}</h3>
+
+                        <div className="d-flex gap-2">
+                            <div className="hovBlue" onClick={scrollToAbout}>
+                                about
+                            </div>
+                            <div className="hovBlue" onClick={scrollToScreenshots}>
+                                screenshots
+                            </div>
+                            <div className="hovBlue" onClick={scrollToComments}>
+                                comments
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div className="row vh-75  justify-content-center  "
                 style={{
                     backgroundImage: `url(${game.background_image_additional})`,
@@ -253,23 +340,23 @@ export default function AppGame() {
 
             <div className="d-flex">
 
-                <div className="mt-5 mb-5 p-1 about">
-                    <h5 className="txtGrey descTxt">About</h5>
+                <div className="mt-5 mb-5 p-1 about w-100">
+                    <h5 className="txtGrey descTxt" ref={aboutRef}>About</h5>
                     <p className="txtW descTxt">{game.description_raw}</p>
                 </div>
             </div>
 
             <div>
 
-                <h5 className="txtGrey descTxt p-1 w-100">Screenshots</h5>
+                <h5 className="txtGrey descTxt p-1 w-100" ref={screenshotsRef}>Screenshots</h5>
             </div>
             <div className="screenList" loading="lazy">
                 <Screenshots gameId={game.id} gameName={game.name} />
             </div>
 
             <div className="mt-5 mb-5 d-flex flex-column align-items-center">
-                <h5 className="txtGrey mb-0 ">Comments</h5>
-                <div className="mt-3 mb-3 w-100  h-100">
+                <h5 className="txtGrey mb-0 " ref={commentsRef}>Comments</h5>
+                <div className="mt-3 mb-3 w-100 h-100 chatBox">
                     <ChatUI game={game} />
                 </div>
                 <div className="mb-5 pb-5">

@@ -10,7 +10,7 @@ export default function AppNavbar() {
     const [loading, setLoading] = useState(false);
     const [games, setGames] = useState([]);
     const session = useContext(SessionContext);
-    const { username } = useProfile(session);
+  
 
     const fetchSearchedGames = async (query) => {
         if (!query) {
